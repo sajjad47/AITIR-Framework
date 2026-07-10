@@ -16,6 +16,9 @@ AITIR is intended to connect identity and access activity with threat intelligen
 - [Framework Architecture](docs/architecture.md)
 - [Public-Sector Use Cases](docs/use-cases.md)
 - [NIST RMF and Control Alignment](docs/nist-rmf-alignment.md)
+- [Proof-of-Concept Demonstration](docs/proof-of-concept.md)
+- [Sample Risk Scoring Model](docs/sample-risk-scoring-model.md)
+- [Pilot Evaluation Protocol](docs/pilot-evaluation-protocol.md)
 - [Development Roadmap](docs/roadmap.md)
 - [Research and Publications](docs/research-and-publications.md)
 - [Status and Limitations](docs/status-and-limitations.md)
@@ -27,6 +30,8 @@ AITIR is designed for cybersecurity professionals, public-sector technology team
 ## Scope
 
 AITIR is currently a framework and documentation project. It is not presented as a fully deployed commercial product, certified security tool, or employer-sponsored system. The documentation is public-facing and avoids confidential employer information, sensitive infrastructure details, controlled technical information, or operational security data.
+
+The repository also includes a synthetic proof-of-concept package. The sample data and scoring examples are illustrative only; they do not contain real agency records, real user activity, employer data, or operational security information.
 
 ## Core Concepts
 
@@ -46,4 +51,3 @@ If referencing this framework, please cite:
 Md Sazzad Hossain  
 System Analyst | Cybersecurity and Public-Sector Technology  
 Research areas: cybersecurity, artificial intelligence, identity and access security, public-sector cyber resilience, post-quantum cryptography, graph neural networks, and fraud detection.
-

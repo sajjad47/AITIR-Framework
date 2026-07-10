@@ -1,0 +1,13 @@
+event_id,risk_score,risk_level,main_risk_drivers,recommended_review_action,documentation_note
+AITIR-E001,0,Low,"No elevated feature in synthetic model","Document during routine review","Routine remote access from known location"
+AITIR-E002,40,Medium,"Sensitive system; privileged role; abnormal timing; new location","Analyst review and business justification check","Administrator access to identity platform after hours"
+AITIR-E003,30,Medium,"Sensitive system; authentication concern","Review MFA failure and related activity","Failed MFA affecting public-service portal"
+AITIR-E004,35,Medium,"Abnormal timing; new location; unmanaged device","Verify reset request and endpoint status","Password reset from new location after hours"
+AITIR-E005,30,Medium,"Sensitive system; privileged role","Routine privileged-access validation","Database query by authorized role on sensitive records"
+AITIR-E006,60,High,"Abnormal timing; suspicious geolocation; threat-intelligence match; remote-access anomaly","Prompt analyst review and session validation","VPN login from suspicious geolocation with known suspicious IP"
+AITIR-E007,40,Medium,"Sensitive system; unauthorized access attempt; unmanaged device","Review denied access and contractor authorization","Denied access attempt to financial system"
+AITIR-E008,40,Medium,"Sensitive system; privileged role; endpoint concern","Review endpoint alert and analyst account activity","Security console access with endpoint alert"
+AITIR-E009,70,High,"Sensitive system; authentication concern; abnormal timing; new location; threat-intelligence match","Escalate for account compromise review","Repeated failed login against identity platform from suspicious context"
+AITIR-E010,25,Medium,"Sensitive system; unusual window","Validate scheduled service-account activity","Service account activity outside expected window"
+AITIR-E011,30,Medium,"Sensitive system; access modification","Review role-change ticket and approval","Identity-platform role change by helpdesk operator"
+AITIR-E012,50,High,"Sensitive system; abnormal timing; new location; unmanaged device","Prompt review of data access and user justification","Sensitive file download after hours from unmanaged device"
