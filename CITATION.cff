@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use or reference this framework documentation, please cite it as below."
+title: "AITIR Framework: AI-Assisted Adaptive Threat Intelligence and Response for Identity-Centered Public-Sector Cybersecurity"
+authors:
+  - family-names: "Hossain"
+    given-names: "Md Sazzad"
+year: 2026
+type: report
+abstract: "Early-stage public framework documentation for identity-centered threat detection, adaptive risk prioritization, and response planning in public-sector cybersecurity environments."
+keywords:
+  - cybersecurity
+  - identity and access management
+  - public-sector cybersecurity
+  - threat intelligence
+  - incident response
+  - artificial intelligence
+
