@@ -13,6 +13,7 @@ AITIR is an early-stage framework developed by Md Sazzad Hossain to support publ
 - [Proof-of-Concept Demonstration](proof-of-concept.md)
 - [Sample Risk Scoring Model](sample-risk-scoring-model.md)
 - [Pilot Evaluation Protocol](pilot-evaluation-protocol.md)
+- [Public Materials](public-materials.md)
 - [Development Roadmap](roadmap.md)
 - [Research and Publications](research-and-publications.md)
 - [Status and Limitations](status-and-limitations.md)

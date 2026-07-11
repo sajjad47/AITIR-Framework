@@ -19,6 +19,7 @@ AITIR is intended to connect identity and access activity with threat intelligen
 - [Proof-of-Concept Demonstration](docs/proof-of-concept.md)
 - [Sample Risk Scoring Model](docs/sample-risk-scoring-model.md)
 - [Pilot Evaluation Protocol](docs/pilot-evaluation-protocol.md)
+- [Public Materials](docs/public-materials.md)
 - [Development Roadmap](docs/roadmap.md)
 - [Research and Publications](docs/research-and-publications.md)
 - [Status and Limitations](docs/status-and-limitations.md)
