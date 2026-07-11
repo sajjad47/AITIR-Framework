@@ -34,6 +34,8 @@ AITIR is currently a framework and documentation project. It is not presented as
 
 The repository also includes a synthetic proof-of-concept package. The sample data and scoring examples are illustrative only; they do not contain real agency records, real user activity, employer data, or operational security information.
 
+AITIR is not documented here as an employment-specific project tied to one agency or one job description. It is presented as a portable public-sector cybersecurity framework that can be reviewed, tested with synthetic or approved anonymized data, refined through practitioner feedback, and developed through future publications and non-confidential pilot evaluation.
+
 ## Core Concepts
 
 - Identity and access behavior can be treated as a major source of threat intelligence.

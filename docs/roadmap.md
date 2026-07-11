@@ -56,3 +56,4 @@ Planned:
 
 AITIR is not dependent on one employer, one government agency, or one proprietary system. It is structured as a portable framework that can be advanced through research, publication, documentation, practitioner feedback, public cybersecurity writing, and future non-confidential prototypes.
 
+Current public-sector employment experience may inform the practical problem space, but it is not the proposed framework itself. AITIR can continue through public documentation, synthetic proof-of-concept development, expert review, professional dissemination, and pilot evaluation independent of any single employer-sponsored role.

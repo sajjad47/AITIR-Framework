@@ -19,6 +19,7 @@ AITIR is:
 - a public-sector cybersecurity model;
 - a documentation and research project;
 - a foundation for future publications, technical refinement, and practitioner feedback.
+- a portable framework that can be evaluated outside one employer or one job description.
 
 ## What AITIR Is Not Yet
 
@@ -30,6 +31,7 @@ AITIR is not yet:
 - a replacement for NIST, CISA, or agency guidance;
 - a claim of broad external adoption;
 - a disclosure of any employer's confidential infrastructure.
+- an employer-sponsored immigration project or job-duty description.
 
 ## Responsible Use
 
@@ -44,4 +46,3 @@ This public version intentionally excludes:
 ## Why This Matters for Review
 
 The purpose of public documentation is to make the framework understandable, reviewable, and portable. It allows outside experts, practitioners, and adjudicators to see that AITIR is more than a private idea, while keeping the claims accurate and appropriately limited.
-
