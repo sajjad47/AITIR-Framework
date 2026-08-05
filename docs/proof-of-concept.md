@@ -101,7 +101,7 @@ python3 scripts/validate_repository.py
 For JSON Schema checks:
 
 ```bash
-uv run --with jsonschema python scripts/validate_repository.py --jsonschema
+uv run --with-requirements requirements-dev.txt python scripts/validate_repository.py --jsonschema
 ```
 
 ## Extension requirements

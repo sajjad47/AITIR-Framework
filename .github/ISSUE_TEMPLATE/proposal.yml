@@ -1,0 +1,51 @@
+name: Architecture or research proposal
+description: Propose a bounded change to AITIR architecture, contracts, standards mappings, or evaluation methods.
+title: "[Proposal]: "
+labels:
+  - enhancement
+  - needs-triage
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem and scope
+      description: Define the problem without assuming a particular implementation.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed change
+      description: Identify affected planes, contracts, guards, schemas, or documents.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence and authoritative sources
+      description: Include stable URLs, standards versions, DOI records, or reproducible findings.
+    validations:
+      required: true
+  - type: textarea
+    id: authority
+    attributes:
+      label: Authority, safety, and privacy effects
+      description: Explain effects on abstention, approval, blast radius, rollback, continuity, and protected data.
+    validations:
+      required: true
+  - type: textarea
+    id: compatibility
+    attributes:
+      label: Compatibility and migration
+      description: State whether the change is patch-, minor-, or major-version compatible and why.
+    validations:
+      required: true
+  - type: checkboxes
+    id: claims
+    attributes:
+      label: Claim discipline
+      options:
+        - label: I distinguish proposals, standards requirements, published findings, submitted findings, reproduced results, and operational evidence.
+          required: true
+        - label: I do not claim certification, compliance, endorsement, or production effectiveness without evidence.
+          required: true

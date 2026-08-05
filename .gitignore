@@ -11,3 +11,14 @@ desktop.ini
 # Python-generated files
 __pycache__/
 *.py[cod]
+.venv/
+.ruff_cache/
+.pytest_cache/
+
+# Node-generated files
+node_modules/
+
+# Build and coverage output
+build/
+dist/
+coverage/

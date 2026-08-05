@@ -23,10 +23,13 @@ The PDFs are generated from:
 Rebuild with:
 
 ```bash
-uv run --with weasyprint python scripts/build_public_materials.py
+uv run --with-requirements requirements-dev.txt python scripts/build_architecture.py
+uv run --with-requirements requirements-dev.txt python scripts/build_public_materials.py
 ```
 
 The repository validator checks that the PDFs contain Version 2.0 markers and verifies their hashes against [`../ARTIFACTS.sha256`](../ARTIFACTS.sha256).
+
+The integrity manifest applies to the reviewed, checked-in artifacts. Repeated builds are byte-identical within a consistent operating-system and font environment; cross-platform PDF or raster bytes may differ because native rendering libraries and fonts differ.
 
 ## Use boundary
 

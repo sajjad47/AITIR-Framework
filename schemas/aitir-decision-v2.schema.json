@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://github.com/sajjad47/AITIR-Framework/schemas/aitir-decision-v2.schema.json",
+  "$id": "https://raw.githubusercontent.com/sajjad47/AITIR-Framework/v2.0.0/schemas/aitir-decision-v2.schema.json",
   "title": "AITIR Decision Object",
   "description": "Policy and authority decision binding evidence to a bounded action request.",
   "type": "object",

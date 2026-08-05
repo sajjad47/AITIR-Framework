@@ -15,7 +15,10 @@ All notable repository changes are documented here. AITIR uses semantic versioni
 - research ledger with evidence hierarchy and verified publication status;
 - security and contribution guidance;
 - repository validation and reproducible public-material build scripts;
-- source-controlled architecture diagram and PDF source files.
+- source-controlled architecture diagram and PDF source files;
+- pinned validation and artifact-generation toolchain;
+- GitHub Actions validation, Dependabot configuration, structured issue forms, and pull-request template;
+- Code of Conduct and documented release procedure.
 
 ### Changed
 
@@ -37,7 +40,7 @@ All notable repository changes are documented here. AITIR uses semantic versioni
 
 The historical repository had only tag `v0.1`; no formal `v1.0.0` tag existed. Version 2 retrospectively designates the pre-2.0 material as the Version 1 conceptual baseline for migration documentation. Existing CSV filenames are retained but their columns and semantics are incompatible with positional Version 1 consumers.
 
-## [0.1] - 2025-12-31
+## [0.1] - 2026-07-11
 
 ### Added
 
@@ -48,5 +51,5 @@ The historical repository had only tag `v0.1`; no formal `v1.0.0` tag existed. V
 - NIST RMF alignment, use cases, roadmap, and limitations;
 - public technical exhibit and development-plan PDFs.
 
-[2.0.0]: https://github.com/sajjad47/AITIR-Framework/compare/v0.1...HEAD
+[2.0.0]: https://github.com/sajjad47/AITIR-Framework/compare/v0.1...v2.0.0
 [0.1]: https://github.com/sajjad47/AITIR-Framework/releases/tag/v0.1
