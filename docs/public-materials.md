@@ -1,15 +1,43 @@
-# Public Materials
+# AITIR 2.0 Public Materials
 
-This page links to public, non-confidential AITIR materials that support review of the framework. These files are provided for technical and professional review and do not contain employer-confidential information, sensitive public-sector infrastructure details, credentials, or operational security data.
+**Version:** 2.0.0
 
-## PDF Materials
+The `public-materials/` directory contains generated PDFs intended for external technical or planning review.
 
-- [AITIR Technical Exhibit](../public-materials/AITIR-Technical-Exhibit.pdf)
-- [AITIR Future Development Plan](../public-materials/AITIR-Future-Development-Plan.pdf)
+## Current files
 
-## Scope Note
+- [`AITIR-Technical-Exhibit.pdf`](../public-materials/AITIR-Technical-Exhibit.pdf)
+  Version 2 architecture, contracts, trust boundaries, decision tiers, evidence limits, and standards mapping.
 
-These materials describe the AITIR Framework, its proposed architecture, public-sector use cases, development plan, and evaluation pathway. They should be read together with the proof-of-concept materials and pilot evaluation protocol.
+- [`AITIR-Future-Development-Plan.pdf`](../public-materials/AITIR-Future-Development-Plan.pdf)
+  Evidence-gated development plan from documentation hardening through a reference implementation and controlled pilot package.
 
-The materials do not claim completed external implementation, live agency adoption, or measured operational impact. They document the framework's current technical maturity, public availability, and readiness for further review.
+## Source and reproducibility
 
+The PDFs are generated from:
+
+- [`../public-materials/src/AITIR-Technical-Exhibit.html`](../public-materials/src/AITIR-Technical-Exhibit.html)
+- [`../public-materials/src/AITIR-Future-Development-Plan.html`](../public-materials/src/AITIR-Future-Development-Plan.html)
+- [`../scripts/build_public_materials.py`](../scripts/build_public_materials.py)
+
+Rebuild with:
+
+```bash
+uv run --with weasyprint python scripts/build_public_materials.py
+```
+
+The repository validator checks that the PDFs contain Version 2.0 markers and verifies their hashes against [`../ARTIFACTS.sha256`](../ARTIFACTS.sha256).
+
+## Use boundary
+
+These materials may support architecture review, research discussion, grant or professional-development evidence, and controlled-pilot planning. They are not proof of implementation, field performance, agency endorsement, compliance, legal sufficiency, or employment/immigration eligibility.
+
+## External submission caution
+
+Before using a PDF externally:
+
+- check the receiving organization's current rules;
+- verify that claims and publication statuses remain current;
+- preserve exact filenames and hashes where evidence integrity matters;
+- avoid presenting standards alignment as certification;
+- do not include secrets, personal telemetry, protected records, or restricted agency information.

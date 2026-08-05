@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>AITIR 2.0 Seven-Plane Architecture</title>
+<style>
+  html,body{margin:0;width:1920px;height:1080px;overflow:hidden;background:#07111f;color:#eef6ff;font-family:Inter,Segoe UI,Arial,sans-serif}
+  svg{display:block;width:1920px;height:1080px}
+  .title{font-size:42px;font-weight:800;letter-spacing:.2px;fill:#f8fbff}
+  .subtitle{font-size:18px;fill:#9fb3c8}
+  .plane{rx:16;ry:16;stroke-width:2}
+  .p-title{font-size:22px;font-weight:750;fill:#f8fbff}
+  .p-num{font-size:13px;font-weight:800;fill:#07111f}
+  .item{font-size:15px;fill:#d9e5f2}
+  .small{font-size:13px;fill:#a9bcd0}
+  .zone{font-size:12px;font-weight:800;letter-spacing:1.4px;fill:#7891aa}
+  .flow{fill:none;stroke:#38bdf8;stroke-width:4;marker-end:url(#arrow)}
+  .feedback{fill:none;stroke:#a78bfa;stroke-width:3;stroke-dasharray:10 8;marker-end:url(#arrow2)}
+  .guard{fill:none;stroke:#f59e0b;stroke-width:3;stroke-dasharray:7 6}
+</style>
+</head>
+<body>
+<svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AITIR Version 2 seven-plane architecture">
+<style>
+  .title{font-size:42px;font-weight:800;letter-spacing:.2px;fill:#f8fbff}
+  .subtitle{font-size:18px;fill:#9fb3c8}
+  .plane{rx:16;ry:16;stroke-width:2}
+  .p-title{font-size:22px;font-weight:750;fill:#f8fbff}
+  .p-num{font-size:13px;font-weight:800;fill:#07111f}
+  .item{font-size:15px;fill:#d9e5f2}
+  .small{font-size:13px;fill:#a9bcd0}
+  .zone{font-size:12px;font-weight:800;letter-spacing:1.4px;fill:#7891aa}
+  .flow{fill:none;stroke:#38bdf8;stroke-width:4;marker-end:url(#arrow)}
+  .feedback{fill:none;stroke:#a78bfa;stroke-width:3;stroke-dasharray:10 8;marker-end:url(#arrow2)}
+  .guard{fill:none;stroke:#f59e0b;stroke-width:3;stroke-dasharray:7 6}
+</style>
+<defs>
+  <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#38bdf8"/></marker>
+  <marker id="arrow2" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#a78bfa"/></marker>
+  <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%"><feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#000" flood-opacity=".28"/></filter>
+</defs>
+
+<rect width="1920" height="1080" fill="#07111f"/>
+<rect x="0" y="0" width="1920" height="8" fill="#38bdf8"/>
+<text x="80" y="72" class="title">AITIR 2.0 · Seven-Plane Identity-Risk Decision Architecture</text>
+<text x="80" y="106" class="subtitle">Evidence in, authority out · Analytics produce evidence · Authorized policy decides · Enforcement acts · Assurance verifies</text>
+<rect x="1545" y="40" width="295" height="64" rx="14" fill="#0e2237" stroke="#38bdf8" stroke-width="2"/>
+<text x="1692" y="66" text-anchor="middle" class="small">VERSION 2.0.0</text>
+<text x="1692" y="90" text-anchor="middle" class="p-title" style="font-size:17px">REFERENCE ARCHITECTURE</text>
+
+<!-- Governance -->
+<g filter="url(#shadow)">
+<rect class="plane" x="80" y="145" width="1760" height="125" fill="#102a43" stroke="#60a5fa"/>
+<circle cx="115" cy="180" r="18" fill="#60a5fa"/><text x="115" y="185" text-anchor="middle" class="p-num">1</text>
+<text x="145" y="188" class="p-title">Governance, Risk &amp; Policy</text>
+<text x="145" y="222" class="item">Mission context · lawful purpose · risk appetite · decision rights · T0–T3 authority · privacy/records/accessibility · policy, model &amp; connector approval</text>
+<text x="145" y="247" class="small">Cross-plane constraints: accountability · minimization · provenance · separation of duty · release gates · independent assessment</text>
+</g>
+
+<!-- Trust zones -->
+<text x="92" y="313" class="zone">UNTRUSTED / COLLECTION</text>
+<text x="535" y="313" class="zone">ANALYTICS</text>
+<text x="965" y="313" class="zone">DECISION AUTHORITY</text>
+<text x="1405" y="313" class="zone">ENFORCEMENT</text>
+<line x1="490" y1="300" x2="490" y2="740" class="guard"/>
+<line x1="920" y1="300" x2="920" y2="740" class="guard"/>
+<line x1="1360" y1="300" x2="1360" y2="740" class="guard"/>
+
+<!-- Core planes -->
+<g filter="url(#shadow)">
+<rect class="plane" x="80" y="335" width="360" height="365" fill="#0e2e3a" stroke="#2dd4bf"/>
+<circle cx="115" cy="372" r="18" fill="#2dd4bf"/><text x="115" y="377" text-anchor="middle" class="p-num">2</text>
+<text x="145" y="379" class="p-title">Identity, Asset &amp;</text><text x="145" y="405" class="p-title">Telemetry Fabric</text>
+<text x="110" y="449" class="item">• IdP · directory · MFA · PAM</text>
+<text x="110" y="477" class="item">• endpoint · network · cloud · apps</text>
+<text x="110" y="505" class="item">• people · workloads · sessions</text>
+<text x="110" y="533" class="item">• resources · entitlements · cases</text>
+<text x="110" y="561" class="item">• schema · time · integrity · retention</text>
+<text x="110" y="589" class="item">• source health · uncertain identity joins</text>
+<rect x="110" y="624" width="300" height="48" rx="10" fill="#09202b" stroke="#2dd4bf"/>
+<text x="260" y="653" text-anchor="middle" class="small">OUTPUT · VERSIONED EVENT OBJECT</text>
+
+<rect class="plane" x="530" y="335" width="340" height="365" fill="#19284a" stroke="#818cf8"/>
+<circle cx="565" cy="372" r="18" fill="#818cf8"/><text x="565" y="377" text-anchor="middle" class="p-num">3</text>
+<text x="595" y="379" class="p-title">AITIR Analytics</text>
+<text x="560" y="429" class="item">• deterministic quality &amp; rules</text>
+<text x="560" y="457" class="item">• role / peer / mission context</text>
+<text x="560" y="485" class="item">• point &amp; sequence analysis</text>
+<text x="560" y="513" class="item">• identity / attack graph analysis</text>
+<text x="560" y="541" class="item">• supervised models where justified</text>
+<text x="560" y="569" class="item">• calibration · uncertainty · abstention</text>
+<rect x="560" y="624" width="280" height="48" rx="10" fill="#111d37" stroke="#818cf8"/>
+<text x="700" y="653" text-anchor="middle" class="small">OUTPUT · EXPIRING EVIDENCE</text>
+
+<rect class="plane" x="960" y="335" width="350" height="365" fill="#3b2510" stroke="#f59e0b"/>
+<circle cx="995" cy="372" r="18" fill="#f59e0b"/><text x="995" y="377" text-anchor="middle" class="p-num">4</text>
+<text x="1025" y="379" class="p-title">Risk Decision &amp;</text><text x="1025" y="405" class="p-title">Authorization</text>
+<text x="990" y="449" class="item">• evidence + impact + mission context</text>
+<text x="990" y="477" class="item">• policy version + named authority</text>
+<text x="990" y="505" class="item">• T0 observe · T1 verify</text>
+<text x="990" y="533" class="item">• T2 contain · T3 consequential</text>
+<text x="990" y="561" class="item">• 12 guards · approval · rollback</text>
+<text x="990" y="589" class="item">• deny · abstain · authorize · expire</text>
+<rect x="990" y="624" width="290" height="48" rx="10" fill="#2a1b0d" stroke="#f59e0b"/>
+<text x="1135" y="653" text-anchor="middle" class="small">OUTPUT · BOUNDED DECISION</text>
+
+<rect class="plane" x="1400" y="335" width="440" height="365" fill="#34203f" stroke="#c084fc"/>
+<circle cx="1435" cy="372" r="18" fill="#c084fc"/><text x="1435" y="377" text-anchor="middle" class="p-num">5</text>
+<text x="1465" y="379" class="p-title">Response Orchestration</text>
+<text x="1430" y="429" class="item">• least-privileged connector</text>
+<text x="1430" y="457" class="item">• decision validity + precondition</text>
+<text x="1430" y="485" class="item">• idempotency + bounded retry</text>
+<text x="1430" y="513" class="item">• evidence preservation</text>
+<text x="1430" y="541" class="item">• partial-failure detection</text>
+<text x="1430" y="569" class="item">• rollback + independent verification</text>
+<rect x="1430" y="624" width="380" height="48" rx="10" fill="#25162e" stroke="#c084fc"/>
+<text x="1620" y="653" text-anchor="middle" class="small">OUTPUT · ACTION + VERIFIED OUTCOME</text>
+</g>
+
+<!-- forward arrows -->
+<path d="M440 518 H520" class="flow"/>
+<path d="M870 518 H950" class="flow"/>
+<path d="M1310 518 H1390" class="flow"/>
+
+<!-- bottom planes -->
+<g filter="url(#shadow)">
+<rect class="plane" x="80" y="765" width="860" height="220" fill="#1f1b43" stroke="#a78bfa"/>
+<circle cx="115" cy="802" r="18" fill="#a78bfa"/><text x="115" y="807" text-anchor="middle" class="p-num">6</text>
+<text x="145" y="809" class="p-title">Assurance, Model Risk &amp; Audit</text>
+<text x="110" y="853" class="item">Model/data/policy cards · chronological validation · calibration &amp; drift · review burden</text>
+<text x="110" y="883" class="item">Policy/state/mutation tests · SBOM · release evidence · immutable decision records</text>
+<text x="110" y="913" class="item">Unauthorized-action count · fault injection · explanation stability · rollback · assessment</text>
+<rect x="110" y="940" width="800" height="24" rx="8" fill="#171432"/><text x="510" y="957" text-anchor="middle" class="small">FEEDBACK IS QUARANTINED · VALIDATED · VERSIONED · APPROVED BEFORE RELEASE</text>
+
+<rect class="plane" x="980" y="765" width="860" height="220" fill="#17332b" stroke="#4ade80"/>
+<circle cx="1015" cy="802" r="18" fill="#4ade80"/><text x="1015" y="807" text-anchor="middle" class="p-num">7</text>
+<text x="1045" y="809" class="p-title">Resilience &amp; Continuity</text>
+<text x="1010" y="853" class="item">Source · model · policy service · IdP · network · connector failure modes</text>
+<text x="1010" y="883" class="item">Approved deterministic fallback · stronger verification · mission-specific recovery objectives</text>
+<text x="1010" y="913" class="item">Bounded break-glass · backup &amp; recovery · no fail-open or indiscriminate fail-closed defaults</text>
+<rect x="1010" y="940" width="800" height="24" rx="8" fill="#10261f"/><text x="1410" y="957" text-anchor="middle" class="small">DEGRADED OPERATION IS AN EXPLICIT AUTHORIZED STATE</text>
+</g>
+
+<!-- feedback lines -->
+<path d="M1620 700 V735 H700 V705" class="feedback"/>
+<path d="M510 765 V735 H260 V705" class="feedback"/>
+<path d="M1410 765 V735 H1135 V705" class="feedback"/>
+
+<text x="80" y="1035" class="small">Canonical name: Adaptive Identity-and-access Threat Intelligence and Response · Reference architecture, not production certification</text>
+<text x="1840" y="1035" text-anchor="end" class="small">github.com/sajjad47/AITIR-Framework</text>
+</svg>
+</body>
+</html>

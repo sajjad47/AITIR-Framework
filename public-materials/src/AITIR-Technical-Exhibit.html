@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>AITIR 2.0 Technical Exhibit</title>
+<style>
+@page{size:Letter;margin:0.58in 0.62in 0.62in;@bottom-left{content:"AITIR Framework 2.0 · Technical Exhibit";font:8pt Arial;color:#64748b}@bottom-right{content:"Page " counter(page) " of " counter(pages);font:8pt Arial;color:#64748b}}
+*{box-sizing:border-box}body{font-family:Arial,Helvetica,sans-serif;color:#152238;font-size:9.3pt;line-height:1.38;margin:0}h1{font-size:28pt;line-height:1.05;color:#0b2540;margin:0 0 12pt}h2{font-size:17pt;color:#0b4778;border-bottom:2px solid #24a8e0;padding-bottom:5pt;margin:0 0 12pt}h3{font-size:11.5pt;color:#173d61;margin:12pt 0 5pt}p{margin:0 0 7pt}ul,ol{margin:4pt 0 8pt 18pt;padding:0}li{margin:0 0 3pt}table{border-collapse:collapse;width:100%;font-size:8.2pt;margin:8pt 0 12pt}th{background:#0b4778;color:white;text-align:left;padding:5.5pt}td{border:1px solid #cad6e2;padding:5pt;vertical-align:top}tr:nth-child(even) td{background:#f3f7fa}.page{page-break-after:always;min-height:9.45in;position:relative}.page:last-child{page-break-after:auto}.kicker{font-size:9pt;letter-spacing:1.4pt;text-transform:uppercase;color:#0b79ad;font-weight:bold}.lead{font-size:13pt;line-height:1.45;color:#334e68}.rule{height:5px;background:#24a8e0;width:90px;margin:20pt 0}.tag{display:inline-block;background:#e5f5fc;color:#075985;border:1px solid #7dd3fc;border-radius:12px;padding:3pt 8pt;margin:0 4pt 4pt 0;font-size:8pt;font-weight:bold}.callout{border-left:5px solid #f59e0b;background:#fff7e6;padding:10pt 12pt;margin:10pt 0}.blue{border-left-color:#24a8e0;background:#eef8fc}.red{border-left-color:#dc2626;background:#fff1f2}.metric{display:inline-block;width:31%;margin-right:2%;vertical-align:top;background:#eef4f8;border-top:4px solid #0b79ad;padding:10pt;min-height:82pt}.metric:last-child{margin-right:0}.metric b{display:block;font-size:15pt;color:#0b4778;margin-bottom:3pt}.arch{width:100%;border:1px solid #cbd5e1;margin:7pt 0 10pt}.footer-note{font-size:7.8pt;color:#64748b}.mono{font-family:"Courier New",monospace;font-size:8pt;background:#eff4f7;padding:8pt;white-space:pre-wrap}.two{display:grid;grid-template-columns:1fr 1fr;gap:14pt}.coverbox{margin-top:38pt;border:1px solid #b8cfdf;padding:18pt;background:#f3f8fb}.seal{width:62pt;height:62pt;border:5px solid #24a8e0;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:15pt;color:#0b4778;float:right}.cite{font-size:8.4pt;padding-left:14pt;text-indent:-14pt;margin-bottom:5pt}
+</style>
+</head>
+<body>
+<section class="page">
+<div class="seal">2.0</div>
+<div class="kicker">Technical Exhibit · Reference Architecture</div>
+<div class="rule"></div>
+<h1>AITIR Framework<br>Version 2.0</h1>
+<p class="lead"><b>Adaptive Identity-and-access Threat Intelligence and Response</b></p>
+<p class="lead">A vendor-neutral architecture for converting identity-centered telemetry into provenance-linked evidence, a bounded policy decision, an authorized response, and independently reviewable assurance.</p>
+<div class="coverbox">
+<p><b>Author:</b> Md Sazzad Hossain</p>
+<p><b>Affiliation:</b> School of Business and Technology, Emporia State University</p>
+<p><b>ORCID:</b> 0009-0009-4948-1179</p>
+<p><b>Release:</b> 2.0.0 · 5 August 2026</p>
+<p><b>Repository:</b> https://github.com/sajjad47/AITIR-Framework</p>
+</div>
+<div class="callout blue" style="margin-top:28pt"><b>Core rule:</b> Evidence in, authority out. Analytics produce evidence. Authorized policy decides. Enforcement acts. Assurance verifies.</div>
+<p class="footer-note" style="margin-top:70pt">This exhibit describes a reference architecture and research preview. It is not software, a production deployment, compliance certification, agency endorsement, legal determination, or evidence of operational effectiveness.</p>
+</section>
+
+<section class="page">
+<h2>1 · Executive Technical Summary</h2>
+<p>Identity security decisions combine uncertain telemetry, organizational policy, mission impact, intervention cost, and authority. AITIR 2.0 prevents these concerns from collapsing into one opaque “AI risk score.” It separates events, analytical evidence, policy decisions, enforcement, outcome verification, feedback, and assurance.</p>
+<div class="metric"><b>7 planes</b>Governance, telemetry, analytics, decision, response, assurance, and resilience.</div><div class="metric"><b>5 trust zones</b>External, collection, analytics, decision authority, and enforcement/assurance.</div><div class="metric"><b>4 action tiers</b>T0 Observe through T3 Consequential, each with distinct authority.</div>
+<h3>Version 2 design requirements</h3>
+<table><tr><th>ID</th><th>Requirement</th></tr>
+<tr><td>DR1-DR2</td><td>Named ownership, policy basis, expiration, and separate subject/device/resource/mission context.</td></tr>
+<tr><td>DR3-DR4</td><td>End-to-end provenance and strict separation of analytics, decision authority, and enforcement privilege.</td></tr>
+<tr><td>DR5-DR6</td><td>Human authority for consequential action; proportionate, evidence-preserving, reversible response.</td></tr>
+<tr><td>DR7-DR8</td><td>Quarantined feedback plus purpose, minimization, retention, access, privacy, and contestability.</td></tr>
+<tr><td>DR9-DR10</td><td>Inventory, integrity, release, rollback, and chronological target-environment evidence for operational claims.</td></tr></table>
+<h3>Semantic distinctions</h3>
+<table><tr><th>Output</th><th>Meaning</th><th>Not equivalent to</th></tr>
+<tr><td>Anomaly score</td><td>Deviation from a reference pattern</td><td>maliciousness or probability</td></tr>
+<tr><td>Risk score</td><td>Ordinal/composite prioritization</td><td>calibrated probability</td></tr>
+<tr><td>Probability</td><td>Frequency-interpretable estimate after calibration</td><td>response authority</td></tr>
+<tr><td>Uncertainty</td><td>Explicitly defined unknown or confidence limitation</td><td>one generic confidence value</td></tr>
+<tr><td>Policy decision</td><td>Authorized disposition under approved rules</td><td>model recommendation</td></tr></table>
+<div class="callout"><b>Abstention is first class.</b> Missing, stale, conflicting, out-of-domain, or consequential evidence can route to bounded review. Queue burden and fallback are part of system safety.</div>
+</section>
+
+<section class="page">
+<h2>2 · Seven-Plane Architecture</h2>
+<img class="arch" src="../../docs/assets/aitir-framework-architecture.png" alt="AITIR 2.0 architecture">
+<table><tr><th>Plane</th><th>Primary function</th><th>Output</th></tr>
+<tr><td>1 Governance</td><td>risk, lawful purpose, decision rights, approval, oversight</td><td>policy and authority</td></tr>
+<tr><td>2 Telemetry</td><td>identity, asset, event, provenance, quality, health</td><td>event object</td></tr>
+<tr><td>3 Analytics</td><td>rules, anomaly, sequence, graph, classification, fusion</td><td>expiring evidence</td></tr>
+<tr><td>4 Decision</td><td>evidence + impact + policy + authority + guards</td><td>deny/abstain/authorize/expire</td></tr>
+<tr><td>5 Response</td><td>idempotent least-privileged action and case workflow</td><td>action and verified outcome</td></tr>
+<tr><td>6 Assurance</td><td>validation, drift, policy tests, audit, release</td><td>assessment evidence</td></tr>
+<tr><td>7 Resilience</td><td>degraded modes, recovery, bounded break-glass</td><td>continuity evidence</td></tr></table>
+<div class="callout red"><b>Trust boundary:</b> Analytics must not hold production enforcement credentials. A valid model output, threat object, or playbook does not establish authorization.</div>
+</section>
+
+<section class="page">
+<h2>3 · Contracts, Decisions and Response Safety</h2>
+<h3>Core objects</h3>
+<table><tr><th>Object</th><th>Minimum properties</th></tr>
+<tr><td>Event</td><td>source, event/ingest time, subject, resource, activity, integrity, quality, purpose, classification, retention</td></tr>
+<tr><td>Evidence</td><td>events, provenance, applicability, score type, calibration, uncertainty, drivers, counter-evidence, expiration, digest</td></tr>
+<tr><td>Decision</td><td>evidence hashes, policy and guards, requested action, T0-T3, authority, safeguards, validity period</td></tr>
+<tr><td>Action/outcome</td><td>decision reference, idempotency, target precondition, connector, evidence preservation, result, compensation</td></tr>
+<tr><td>Feedback</td><td>review evidence, uncertainty, adjudication, quarantine, validation, promotion status</td></tr></table>
+<h3>Action tiers</h3>
+<table><tr><th>Tier</th><th>Examples</th><th>Authority ceiling</th></tr>
+<tr><td>T0 Observe</td><td>enrich, log, watch</td><td>preapproved policy</td></tr>
+<tr><td>T1 Verify</td><td>step-up, device check, confirmation</td><td>preapproved deterministic playbook with fallback</td></tr>
+<tr><td>T2 Contain</td><td>revoke session, isolate device, temporary suspension</td><td>authorized responder or narrow preapproval</td></tr>
+<tr><td>T3 Consequential</td><td>disable identity, alter privilege, block essential service</td><td>named human; dual control when required</td></tr></table>
+<h3>Reference state machine</h3>
+<div class="mono">proposed → denied
+proposed → authorized → executing → succeeded
+                           └────────→ failed → new evidence + new decision
+succeeded / failed → separately authorized rollback
+stale proposed / authorized → expired (cannot execute)</div>
+<p>Twelve guard categories cover risk basis, freshness, corroboration, approval, separation of duty, rollback, critical targets, blast radius, holds, refresh after failure, aging evidence, and break-glass scope.</p>
+<div class="callout blue"><b>Enforcement rule:</b> A connector rechecks decision validity and target preconditions, uses an idempotency key, preserves evidence, records partial failure, and verifies the resulting state independently where feasible.</div>
+</section>
+
+<section class="page">
+<h2>4 · Evaluation, Assurance and Standards</h2>
+<h3>Evidence-gated progression</h3>
+<table><tr><th>Level</th><th>Evidence</th><th>Version 2 repository</th></tr>
+<tr><td>L0 Document</td><td>architecture, contracts, threat model, governance, limitations</td><td>provided</td></tr>
+<tr><td>L1 Artifact</td><td>schema/example/policy/state tests</td><td>selected artifacts</td></tr>
+<tr><td>L2 Controlled pilot</td><td>offline replay and shadow/advisory evaluation</td><td>not claimed</td></tr>
+<tr><td>L3 Restricted operations</td><td>authorization, narrow controls, monitored rollback</td><td>not claimed</td></tr>
+<tr><td>L4 Operational assurance</td><td>sustained evidence and independent reassessment</td><td>not claimed</td></tr></table>
+<h3>Minimum measurement</h3>
+<div class="two"><div><b>Analytics</b><ul><li>precision-recall and attack-family recall</li><li>false alerts per operational unit</li><li>Brier score and reliability</li><li>coverage-risk and abstention burden</li><li>chronological leakage-safe evaluation</li></ul></div><div><b>System safety</b><ul><li>unauthorized action count</li><li>expiration/replay/idempotency</li><li>rollback and evidence preservation</li><li>source/model/connector fault injection</li><li>mission, privacy and accessibility impact</li></ul></div></div>
+<h3>Principal mappings</h3>
+<p><span class="tag">NIST CSF 2.0</span><span class="tag">RMF</span><span class="tag">SP 800-53/53A</span><span class="tag">SP 800-207</span><span class="tag">SP 800-63-4</span><span class="tag">SP 800-61r3</span><span class="tag">AI RMF</span><span class="tag">CISA ZTMM 2.0</span><span class="tag">MITRE ATT&amp;CK</span><span class="tag">OCSF 1.9</span><span class="tag">STIX/TAXII 2.1</span><span class="tag">CACAO 2.0</span><span class="tag">CAEP/RISC 1.0</span></p>
+<p>Mappings support terminology, outcomes, evidence, or interchange. They do not establish compliance, certification, endorsement, source trust, local relevance, or authority.</p>
+<h3>Research modules</h3>
+<p>Version 2 integrates a seven-plane architecture, calibrated abstention, uncertainty-aware graph remediation, and explicit-state response authority. Four related studies were verified as submitted as of the release cutoff and are not represented as accepted.</p>
+</section>
+
+<section class="page">
+<h2>5 · Evidence Boundary and Responsible Use</h2>
+<h3>Checked repository evidence</h3>
+<p>The 12-row synthetic example now reconciles identifiers, feature points, tiers, routing, and counts. The distribution is <b>High 3, Medium 8, Low 1</b>. The historical narrative discrepancy is corrected and automatically checked.</p>
+<div class="callout red"><b>It cannot estimate</b> accuracy, precision, recall, false-positive rate, calibration, fairness, safety, operational latency, incident reduction, analyst workload, or financial benefit. It has no ground-truth attack labels.</div>
+<h3>Known limitations</h3>
+<ul><li>Identity resolution can merge or split subjects incorrectly.</li><li>Anomalies can be benign; calibrated probabilities decay under shift.</li><li>Threat feeds, graph edges, explanations, labels, and feedback can be wrong or manipulated.</li><li>Connectors can race, partially fail, duplicate action, or report premature success.</li><li>Generative AI can be manipulated by untrusted log and threat-feed text.</li><li>Consequential actions involve legal, privacy, labor, accessibility, evidence, records, and continuity duties outside a model.</li></ul>
+<h3>Responsible-use conditions</h3>
+<ol><li>Obtain local authority and multidisciplinary review.</li><li>Keep analytics outside the enforcement trust root.</li><li>Begin with architecture, offline replay, shadow, and advisory stages.</li><li>Measure abstention queue capacity and human-review error.</li><li>Test policy, state, expiration, replay, idempotency, failure, rollback, and degraded modes.</li><li>Use claims only within the scope of collected evidence.</li></ol>
+<h3>Canonical citation</h3>
+<p class="cite">Hossain, M. S. (2026). <i>AITIR Framework: Adaptive Identity-and-access Threat Intelligence and Response</i> (Version 2.0.0) [Reference architecture and documentation]. https://github.com/sajjad47/AITIR-Framework</p>
+<h3>Principal official sources</h3>
+<p class="cite">NIST CSF 2.0. https://doi.org/10.6028/NIST.CSWP.29</p>
+<p class="cite">NIST SP 800-207, Zero Trust Architecture. https://doi.org/10.6028/NIST.SP.800-207</p>
+<p class="cite">NIST SP 800-63-4, Digital Identity Guidelines. https://doi.org/10.6028/NIST.SP.800-63-4</p>
+<p class="cite">NIST SP 800-61 Rev. 3, Incident Response. https://doi.org/10.6028/NIST.SP.800-61r3</p>
+<p class="cite">NIST AI RMF 1.0. https://doi.org/10.6028/NIST.AI.100-1</p>
+<p class="footer-note">Full requirements, schemas, standards crosswalk, research ledger, migration guide, and validation scripts are maintained in the public repository. Generated 5 August 2026.</p>
+</section>
+</body>
+</html>

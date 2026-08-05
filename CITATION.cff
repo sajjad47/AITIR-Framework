@@ -1,17 +1,39 @@
 cff-version: 1.2.0
-message: "If you use or reference this framework documentation, please cite it as below."
-title: "AITIR Framework: AI-Assisted Adaptive Threat Intelligence and Response for Identity-Centered Public-Sector Cybersecurity"
+message: "If you use AITIR Version 2, cite this framework and any specific research module you rely on."
+title: "AITIR Framework: Adaptive Identity-and-access Threat Intelligence and Response"
+type: software
+version: 2.0.0
+date-released: 2026-08-05
 authors:
-  - family-names: "Hossain"
-    given-names: "Md Sazzad"
-year: 2026
-type: report
-abstract: "Early-stage public framework documentation for identity-centered threat detection, adaptive risk prioritization, and response planning in public-sector cybersecurity environments."
+  - family-names: Hossain
+    given-names: Md Sazzad
+    orcid: "https://orcid.org/0009-0009-4948-1179"
+    affiliation: "School of Business and Technology, Emporia State University"
+repository-code: "https://github.com/sajjad47/AITIR-Framework"
+url: "https://github.com/sajjad47/AITIR-Framework"
+abstract: >-
+  AITIR Version 2.0 is a vendor-neutral reference architecture for converting
+  identity-centered security telemetry into provenance-linked evidence, a
+  bounded policy decision, an authorized response, and independently
+  reviewable assurance. The repository provides documentation, schemas,
+  synthetic examples, validation, and research provenance; it is not a
+  production implementation or certification.
 keywords:
+  - identity security
   - cybersecurity
-  - identity and access management
-  - public-sector cybersecurity
-  - threat intelligence
+  - zero trust
+  - threat detection
   - incident response
-  - artificial intelligence
-
+  - model risk
+  - response authority
+  - public sector
+preferred-citation:
+  type: software
+  title: "AITIR Framework: Adaptive Identity-and-access Threat Intelligence and Response"
+  version: 2.0.0
+  year: 2026
+  authors:
+    - family-names: Hossain
+      given-names: Md Sazzad
+      orcid: "https://orcid.org/0009-0009-4948-1179"
+  repository-code: "https://github.com/sajjad47/AITIR-Framework"

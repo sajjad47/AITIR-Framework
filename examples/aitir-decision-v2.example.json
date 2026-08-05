@@ -1,0 +1,60 @@
+{
+  "decision_id": "DEC-002",
+  "schema_version": "2.0.0",
+  "created_at": "2026-07-01T02:13:00Z",
+  "effective_at": "2026-07-01T02:13:00Z",
+  "expires_at": "2026-07-01T02:23:00Z",
+  "subject_id": "USR-102",
+  "target": {
+    "id": "SESSION-DEMO-02",
+    "type": "session",
+    "criticality": "standard"
+  },
+  "evidence_refs": [
+    {
+      "evidence_id": "EVD-002",
+      "digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+    }
+  ],
+  "policy": {
+    "policy_id": "synthetic-t1-verification",
+    "policy_version": "2.0.0-demo",
+    "guard_set_version": "2.0.0-reference"
+  },
+  "requested_action": "step-up-authentication",
+  "decision_tier": "T1",
+  "disposition": "authorize",
+  "authority": {
+    "authorization_mode": "system-preapproved",
+    "required_role": "preapproved-deterministic-policy",
+    "approvals": [
+      {
+        "approval_id": "APPROVAL-DEMO-01",
+        "role": "policy-owner",
+        "approved_at": "2026-07-01T00:00:00Z"
+      }
+    ]
+  },
+  "guards": [
+    {"guard_id": "G1", "passed": true, "reason_code": null},
+    {"guard_id": "G2", "passed": true, "reason_code": null},
+    {"guard_id": "G3", "passed": true, "reason_code": null},
+    {"guard_id": "G4", "passed": true, "reason_code": null},
+    {"guard_id": "G5", "passed": true, "reason_code": null},
+    {"guard_id": "G6", "passed": true, "reason_code": null},
+    {"guard_id": "G7", "passed": true, "reason_code": null},
+    {"guard_id": "G8", "passed": true, "reason_code": null},
+    {"guard_id": "G9", "passed": true, "reason_code": null},
+    {"guard_id": "G10", "passed": true, "reason_code": null},
+    {"guard_id": "G11", "passed": true, "reason_code": null},
+    {"guard_id": "G12", "passed": true, "reason_code": null}
+  ],
+  "safeguards": {
+    "evidence_preservation": true,
+    "rollback_ready": true,
+    "mission_impact_checked": true,
+    "hold_conflict": false,
+    "blast_radius": "single"
+  },
+  "state": "authorized"
+}

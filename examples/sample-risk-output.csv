@@ -1,13 +1,13 @@
-event_id,risk_score,risk_level,main_risk_drivers,recommended_review_action,documentation_note
-AITIR-E001,0,Low,"No elevated feature in synthetic model","Document during routine review","Routine remote access from known location"
-AITIR-E002,40,Medium,"Sensitive system; privileged role; abnormal timing; new location","Analyst review and business justification check","Administrator access to identity platform after hours"
-AITIR-E003,30,Medium,"Sensitive system; authentication concern","Review MFA failure and related activity","Failed MFA affecting public-service portal"
-AITIR-E004,35,Medium,"Abnormal timing; new location; unmanaged device","Verify reset request and endpoint status","Password reset from new location after hours"
-AITIR-E005,30,Medium,"Sensitive system; privileged role","Routine privileged-access validation","Database query by authorized role on sensitive records"
-AITIR-E006,60,High,"Abnormal timing; suspicious geolocation; threat-intelligence match; remote-access anomaly","Prompt analyst review and session validation","VPN login from suspicious geolocation with known suspicious IP"
-AITIR-E007,40,Medium,"Sensitive system; unauthorized access attempt; unmanaged device","Review denied access and contractor authorization","Denied access attempt to financial system"
-AITIR-E008,40,Medium,"Sensitive system; privileged role; endpoint concern","Review endpoint alert and analyst account activity","Security console access with endpoint alert"
-AITIR-E009,70,High,"Sensitive system; authentication concern; abnormal timing; new location; threat-intelligence match","Escalate for account compromise review","Repeated failed login against identity platform from suspicious context"
-AITIR-E010,25,Medium,"Sensitive system; unusual window","Validate scheduled service-account activity","Service account activity outside expected window"
-AITIR-E011,30,Medium,"Sensitive system; access modification","Review role-change ticket and approval","Identity-platform role change by helpdesk operator"
-AITIR-E012,50,High,"Sensitive system; abnormal timing; new location; unmanaged device","Prompt review of data access and user justification","Sensitive file download after hours from unmanaged device"
+event_id,evidence_id,schema_version,evidence_schema_version,decision_schema_version,risk_score,score_type,risk_level,calibrated_probability,calibration_status,uncertainty_method,uncertainty_value,applicability,workflow_routing,recommended_tier,recommended_action,authority_status,reason_codes,expires_at
+EVT-001,EVD-001,2.0.0,2.0.0,2.0.0,0,heuristic-risk,Low,,not-calibrated,not-estimated,,synthetic-only,observe,T0,observe,not-evaluated,HEURISTIC_ONLY,2026-07-01T15:05:00Z
+EVT-002,EVD-002,2.0.0,2.0.0,2.0.0,70,heuristic-risk,High,,not-calibrated,not-estimated,,synthetic-only,urgent-analyst-review,T1,step-up-authentication,not-evaluated,HEURISTIC_ONLY|AUTHORITY_REQUIRED,2026-07-01T03:11:00Z
+EVT-003,EVD-003,2.0.0,2.0.0,2.0.0,40,heuristic-risk,Medium,,not-calibrated,not-estimated,,synthetic-only,analyst-review,T0,investigate,not-evaluated,HEURISTIC_ONLY|PRIVILEGE_CHANGE_REVIEW,2026-07-01T16:20:00Z
+EVT-004,EVD-004,2.0.0,2.0.0,2.0.0,35,heuristic-risk,Medium,,not-calibrated,not-estimated,,synthetic-only,analyst-review,T1,step-up-authentication,not-evaluated,HEURISTIC_ONLY|SOURCE_INTEGRITY_UNVERIFIED,2026-07-02T02:35:00Z
+EVT-005,EVD-005,2.0.0,2.0.0,2.0.0,75,heuristic-risk,High,,not-calibrated,not-estimated,,synthetic-only,urgent-analyst-review,T1,step-up-authentication,not-evaluated,HEURISTIC_ONLY|AUTHORITY_REQUIRED,2026-07-02T04:12:00Z
+EVT-006,EVD-006,2.0.0,2.0.0,2.0.0,25,heuristic-risk,Medium,,not-calibrated,not-estimated,,synthetic-only,analyst-review,T0,investigate,not-evaluated,HEURISTIC_ONLY,2026-07-03T00:10:00Z
+EVT-007,EVD-007,2.0.0,2.0.0,2.0.0,40,heuristic-risk,Medium,,not-calibrated,not-estimated,,synthetic-only,analyst-review,T1,step-up-authentication,not-evaluated,HEURISTIC_ONLY|DEVICE_POSTURE_REVIEW,2026-07-03T17:42:00Z
+EVT-008,EVD-008,2.0.0,2.0.0,2.0.0,35,heuristic-risk,Medium,,not-calibrated,not-estimated,,synthetic-only,analyst-review,T0,investigate,not-evaluated,HEURISTIC_ONLY|PRIVILEGE_CHANGE_REVIEW,2026-07-03T01:18:00Z
+EVT-009,EVD-009,2.0.0,2.0.0,2.0.0,30,heuristic-risk,Medium,,not-calibrated,not-estimated,,synthetic-only,analyst-review,T0,investigate,not-evaluated,HEURISTIC_ONLY,2026-07-03T19:09:00Z
+EVT-010,EVD-010,2.0.0,2.0.0,2.0.0,75,heuristic-risk,High,,not-calibrated,not-estimated,,synthetic-only,urgent-analyst-review,T1,step-up-authentication,not-evaluated,HEURISTIC_ONLY|AUTHORITY_REQUIRED,2026-07-04T03:44:00Z
+EVT-011,EVD-011,2.0.0,2.0.0,2.0.0,35,heuristic-risk,Medium,,not-calibrated,not-estimated,,synthetic-only,analyst-review,T1,step-up-authentication,not-evaluated,HEURISTIC_ONLY|SOURCE_INTEGRITY_UNVERIFIED,2026-07-04T02:06:00Z
+EVT-012,EVD-012,2.0.0,2.0.0,2.0.0,35,heuristic-risk,Medium,,not-calibrated,not-estimated,,synthetic-only,analyst-review,T0,dependency-review,not-evaluated,HEURISTIC_ONLY|SERVICE_ACCOUNT_REVIEW,2026-07-05T00:31:00Z

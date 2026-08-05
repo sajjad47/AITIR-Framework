@@ -1,29 +1,47 @@
 # AITIR Framework Documentation
 
-**AI-Assisted Adaptive Threat Intelligence and Response for identity-centered public-sector cybersecurity**
+**Version:** 2.0.0
+**Canonical name:** Adaptive Identity-and-access Threat Intelligence and Response
+**Status:** Reference architecture and research preview
 
-AITIR is an early-stage framework developed by Md Sazzad Hossain to support public-sector cybersecurity teams in analyzing identity and access activity, prioritizing adaptive threats, and documenting response workflows.
+AITIR Version 2 converts identity-centered telemetry into governed evidence, a bounded policy decision, an authorized response, and auditable assurance. It does not give models independent authority.
 
-## Read the Documentation
+## Core specification
 
-- [Technical Overview](technical-overview.md)
-- [Framework Architecture](architecture.md)
-- [Public-Sector Use Cases](use-cases.md)
-- [NIST RMF and Control Alignment](nist-rmf-alignment.md)
-- [Proof-of-Concept Demonstration](proof-of-concept.md)
-- [Sample Risk Scoring Model](sample-risk-scoring-model.md)
+1. [Version 2 Specification](version-2-specification.md)
+2. [Technical Overview](technical-overview.md)
+3. [Architecture](architecture.md)
+4. [Data Contracts](data-contracts.md)
+5. [Response Authority](response-authority.md)
+6. [Standards Crosswalk](standards-crosswalk.md)
+7. [Migration from Version 1](migration-v1-to-v2.md)
+
+## Evaluation and evidence
+
+- [Synthetic Proof of Concept](proof-of-concept.md)
+- [Reference Risk Scoring Model](sample-risk-scoring-model.md)
 - [Pilot Evaluation Protocol](pilot-evaluation-protocol.md)
-- [Public Materials](public-materials.md)
-- [Development Roadmap](roadmap.md)
+- [Use Cases](use-cases.md)
 - [Research and Publications](research-and-publications.md)
+- [Version 2 Research Ledger](../research/version-2-research-ledger.md)
+
+## Project governance
+
 - [Status and Limitations](status-and-limitations.md)
+- [Roadmap](roadmap.md)
+- [Public Materials](public-materials.md)
+- [Security Guidance](../SECURITY.md)
+- [Contributing](../CONTRIBUTING.md)
+- [Changelog](../CHANGELOG.md)
 
-## Architecture
+## Machine-readable artifacts
 
-![AITIR Framework Architecture](assets/aitir-framework-architecture.png)
+- [Event schema](../schemas/aitir-event-v2.schema.json)
+- [Evidence schema](../schemas/aitir-evidence-v2.schema.json)
+- [Decision schema](../schemas/aitir-decision-v2.schema.json)
+- [Synthetic events](../examples/synthetic-identity-events.csv)
+- [Synthetic output](../examples/sample-risk-output.csv)
 
-## Review Status
+## Evidence boundary
 
-This documentation is public-facing and intentionally conservative. It presents AITIR as an early-stage framework available for review and continued development, not as a claim of broad external deployment or completed commercial adoption.
-
-The proof-of-concept materials use synthetic data only. They are included to show how AITIR can be evaluated without exposing confidential public-sector systems or employer information.
+Documentation completeness is not implementation evidence. Schema validation is not security effectiveness. Synthetic studies are not field validation. Standards alignment is not compliance. A submitted manuscript is not an accepted publication. See [Status and Limitations](status-and-limitations.md).

@@ -1,0 +1,164 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/sajjad47/AITIR-Framework/schemas/aitir-decision-v2.schema.json",
+  "title": "AITIR Decision Object",
+  "description": "Policy and authority decision binding evidence to a bounded action request.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["decision_id", "schema_version", "created_at", "effective_at", "expires_at", "subject_id", "evidence_refs", "policy", "requested_action", "decision_tier", "disposition", "authority", "guards", "safeguards", "state"],
+  "properties": {
+    "decision_id": {"type": "string", "pattern": "^[A-Za-z0-9._:-]{3,128}$"},
+    "schema_version": {"const": "2.0.0"},
+    "created_at": {"type": "string", "format": "date-time"},
+    "effective_at": {"type": "string", "format": "date-time"},
+    "expires_at": {"type": "string", "format": "date-time"},
+    "subject_id": {"type": "string", "minLength": 1},
+    "target": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "required": ["id", "type", "criticality"],
+      "properties": {
+        "id": {"type": "string"},
+        "type": {"type": "string"},
+        "criticality": {"enum": ["standard", "critical", "unknown"]}
+      }
+    },
+    "evidence_refs": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["evidence_id", "digest"],
+        "properties": {
+          "evidence_id": {"type": "string"},
+          "digest": {"type": "string", "pattern": "^sha256:[a-f0-9]{64}$"}
+        }
+      }
+    },
+    "policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["policy_id", "policy_version", "guard_set_version"],
+      "properties": {
+        "policy_id": {"type": "string"},
+        "policy_version": {"type": "string"},
+        "guard_set_version": {"type": "string"}
+      }
+    },
+    "requested_action": {"enum": ["observe", "increase-logging", "step-up-authentication", "device-check", "revoke-session", "isolate-device", "disable-identity", "remove-privilege", "block-service", "other"]},
+    "decision_tier": {"enum": ["T0", "T1", "T2", "T3"]},
+    "disposition": {"enum": ["deny", "abstain", "authorize", "expire"]},
+    "authority": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["authorization_mode", "required_role", "approvals"],
+      "properties": {
+        "authorization_mode": {"enum": ["system-preapproved", "named-human", "dual-control"]},
+        "required_role": {"type": "string"},
+        "approvals": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["approval_id", "role", "approved_at"],
+            "properties": {
+              "approval_id": {"type": "string"},
+              "role": {"type": "string"},
+              "approved_at": {"type": "string", "format": "date-time"}
+            }
+          }
+        }
+      }
+    },
+    "guards": {
+      "type": "array",
+      "minItems": 12,
+      "maxItems": 12,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["guard_id", "passed", "reason_code"],
+        "properties": {
+          "guard_id": {"pattern": "^G([1-9]|1[0-2])$", "type": "string"},
+          "passed": {"type": "boolean"},
+          "reason_code": {"type": ["string", "null"]}
+        }
+      },
+      "allOf": [
+        {"contains": {"properties": {"guard_id": {"const": "G1"}}, "required": ["guard_id"]}, "minContains": 1, "maxContains": 1},
+        {"contains": {"properties": {"guard_id": {"const": "G2"}}, "required": ["guard_id"]}, "minContains": 1, "maxContains": 1},
+        {"contains": {"properties": {"guard_id": {"const": "G3"}}, "required": ["guard_id"]}, "minContains": 1, "maxContains": 1},
+        {"contains": {"properties": {"guard_id": {"const": "G4"}}, "required": ["guard_id"]}, "minContains": 1, "maxContains": 1},
+        {"contains": {"properties": {"guard_id": {"const": "G5"}}, "required": ["guard_id"]}, "minContains": 1, "maxContains": 1},
+        {"contains": {"properties": {"guard_id": {"const": "G6"}}, "required": ["guard_id"]}, "minContains": 1, "maxContains": 1},
+        {"contains": {"properties": {"guard_id": {"const": "G7"}}, "required": ["guard_id"]}, "minContains": 1, "maxContains": 1},
+        {"contains": {"properties": {"guard_id": {"const": "G8"}}, "required": ["guard_id"]}, "minContains": 1, "maxContains": 1},
+        {"contains": {"properties": {"guard_id": {"const": "G9"}}, "required": ["guard_id"]}, "minContains": 1, "maxContains": 1},
+        {"contains": {"properties": {"guard_id": {"const": "G10"}}, "required": ["guard_id"]}, "minContains": 1, "maxContains": 1},
+        {"contains": {"properties": {"guard_id": {"const": "G11"}}, "required": ["guard_id"]}, "minContains": 1, "maxContains": 1},
+        {"contains": {"properties": {"guard_id": {"const": "G12"}}, "required": ["guard_id"]}, "minContains": 1, "maxContains": 1}
+      ]
+    },
+    "safeguards": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["evidence_preservation", "rollback_ready", "mission_impact_checked", "hold_conflict", "blast_radius"],
+      "properties": {
+        "evidence_preservation": {"type": "boolean"},
+        "rollback_ready": {"type": "boolean"},
+        "mission_impact_checked": {"type": "boolean"},
+        "hold_conflict": {"type": "boolean"},
+        "blast_radius": {"enum": ["single", "team", "enterprise", "unknown"]}
+      }
+    },
+    "state": {"enum": ["proposed", "denied", "authorized", "executing", "succeeded", "failed", "rolled_back", "expired"]}
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"disposition": {"const": "authorize"}}, "required": ["disposition"]},
+      "then": {
+        "properties": {
+          "state": {"enum": ["authorized", "executing", "succeeded", "failed", "rolled_back"]},
+          "guards": {"items": {"properties": {"passed": {"const": true}}}}
+        }
+      }
+    },
+    {
+      "if": {"properties": {"disposition": {"const": "deny"}}, "required": ["disposition"]},
+      "then": {"properties": {"state": {"const": "denied"}}}
+    },
+    {
+      "if": {"properties": {"disposition": {"const": "abstain"}}, "required": ["disposition"]},
+      "then": {"properties": {"state": {"const": "proposed"}}}
+    },
+    {
+      "if": {"properties": {"disposition": {"const": "expire"}}, "required": ["disposition"]},
+      "then": {"properties": {"state": {"const": "expired"}}}
+    },
+    {
+      "if": {"properties": {"decision_tier": {"const": "T3"}}, "required": ["decision_tier"]},
+      "then": {
+        "properties": {
+          "authority": {
+            "properties": {
+              "authorization_mode": {"enum": ["named-human", "dual-control"]},
+              "approvals": {"minItems": 1}
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "authority": {
+            "properties": {"authorization_mode": {"const": "dual-control"}},
+            "required": ["authorization_mode"]
+          }
+        }
+      },
+      "then": {"properties": {"authority": {"properties": {"approvals": {"minItems": 2}}}}}
+    }
+  ]
+}

@@ -1,73 +1,139 @@
-# Pilot Evaluation Protocol
+# AITIR 2.0 Controlled Pilot Evaluation Protocol
 
-This protocol describes how AITIR can be evaluated in a non-confidential pilot or tabletop review. It is intended for public-sector cybersecurity professionals, academic reviewers, and practitioners who want to assess the framework without exposing sensitive systems.
+**Version:** 2.0.0
+**Status:** Planning template; local approval required
 
-## Pilot Goal
+## Purpose
 
-Evaluate whether AITIR can help analysts prioritize identity-centered cybersecurity events in a way that is explainable, auditable, and operationally useful.
+This protocol tests whether an implementation is useful, calibrated, bounded, governable, and resilient enough to progress through controlled stages. It does not authorize collection, monitoring, or automated response.
 
-## Pilot Type
+## Required approvals before data access
 
-Recommended first pilot:
+- system and mission owner;
+- security and identity governance;
+- privacy, legal, records, civil-rights, labor, and accessibility review as applicable;
+- incident response and continuity owner;
+- model-risk or analytical validation function;
+- independent assessor;
+- data owner and authorizing official.
 
-- tabletop evaluation;
-- synthetic data review;
-- historical-data replay after anonymization and agency approval;
-- analyst scoring comparison;
-- policy/workflow mapping exercise.
+Document purpose, lawful basis, minimization, retention, access, participant/workforce notice where required, contestability, and secure termination.
 
-## Evaluation Questions
+## Prespecified questions
 
-1. Does the framework identify the highest-risk events consistently?
-2. Are the risk drivers understandable to analysts and managers?
-3. Does the response recommendation match operational practice?
-4. Can the review decision be documented for audit purposes?
-5. Does the workflow align with access control, authentication, audit, monitoring, and incident-response expectations?
+1. Are source records complete, timely, correctly normalized, and provenance linked?
+2. Does identity resolution preserve uncertainty and avoid material false joins?
+3. Does detection performance hold on a chronological target-environment test?
+4. Are probabilities calibrated, and does calibration decay over time or subgroup?
+5. Does abstention concentrate errors at a review burden the organization can handle?
+6. Are policy decisions traceable to evidence, version, authority, and reason codes?
+7. Do stateful guards prevent stale, unauthorized, overbroad, or unsafe actions?
+8. Are actions idempotent, evidence preserving, reversible, and continuity aware?
+9. Does the system fail safely under source, model, policy, network, and connector loss?
+10. Can independent reviewers reproduce every material claim?
 
-## Suggested Pilot Steps
+## Progression stages
 
-1. Select 20 to 50 synthetic or approved anonymized identity/access events.
-2. Label each event with system sensitivity, role, time context, location context, authentication signal, endpoint signal, and threat-intelligence signal.
-3. Apply AITIR scoring logic.
-4. Ask one or more reviewers to assess whether the priority ranking is reasonable.
-5. Compare AITIR output to reviewer judgment.
-6. Record disagreements and refine scoring weights.
-7. Produce a short pilot report summarizing findings and limitations.
+| Stage | Mode | State-changing action | Minimum evidence |
+|---|---|---|---|
+| P0 | architecture and policy review | none | threat model, contracts, authority, privacy, continuity |
+| P1 | offline historical replay | none | provenance, chronological protocol, leakage tests |
+| P2 | live shadow monitoring | none | source health, latency, queue simulation, privacy controls |
+| P3 | advisory recommendations | human executes outside AITIR | analyst agreement, burden, explanations, override reasons |
+| P4 | narrow T0/T1 | preapproved low-impact automation | guard tests, accessible fallback, rate limit, expiration |
+| P5 | restricted T2 consideration | only explicitly authorized deterministic conditions | independent assessment, rollback, fault injection, mission approval |
 
-## Suggested Metrics
+T3 remains human authorized. Progression is not automatic and may be reversed.
 
-| Metric | Description |
-|---|---|
-| High-risk agreement rate | Percent of high-risk AITIR events reviewers also consider high priority. |
-| Explanation clarity | Reviewer assessment of whether risk drivers are understandable. |
-| Escalation appropriateness | Whether recommended response matches operational expectations. |
-| False-positive review rate | Number of events scored too high after review. |
-| Missed-priority rate | Number of events reviewers believe should have been higher priority. |
-| Documentation completeness | Whether output provides enough information for audit or after-action review. |
+## Data and split design
 
-## Pilot Output
+- Define the decision timestamp before feature construction.
+- Fit preprocessing and models on training data only.
+- Select model, calibrator, threshold, abstention coverage, and policy on validation data only.
+- Evaluate once on a later untouched test period.
+- Keep identities clustered in uncertainty estimation.
+- Report attack-family, role, resource, and operating-condition concentration.
+- Document delayed, missing, selective, or disputed labels.
+- Freeze hashes, environment, code, schemas, and decision rules.
 
-A completed pilot should produce:
+## Metrics
 
-- event set description;
-- scoring table;
-- reviewer comments;
-- summary of agreement/disagreement;
-- recommended scoring revisions;
-- limitations and next steps.
+### Detection
 
-## Ethical and Security Constraints
+- precision-recall curve and average precision;
+- class/attack-family precision and recall;
+- false alerts per 1,000 or 10,000 identities/user-days;
+- alert rate, time to detect, and event-to-decision latency;
+- uncertainty intervals with clustering appropriate to the unit.
 
-Any real-world pilot must protect:
+ROC AUC may be reported but not used alone under rare-event imbalance.
 
-- sensitive agency data;
-- personally identifiable information;
-- law-enforcement information;
-- credentials and access methods;
-- nonpublic system architecture;
-- incident-response procedures.
+### Calibration and selective decisioning
 
-## Current Status
+- Brier score, log loss, reliability plot, and calibration error;
+- calibration by time and relevant operating group;
+- coverage-risk curve and abstention rate;
+- automatic errors and reviews per operational unit;
+- queue size, age, handling time, and capacity breach;
+- cost sensitivity over false positive, false negative, intervention, and review costs;
+- sensitivity to fallible and delayed human review.
 
-This protocol is available for review. It is not a claim that a live external pilot has already been completed.
+### Safety and authority
 
+- unauthorized-action count;
+- expired/replayed decision blocks;
+- guard and reason-code coverage;
+- separation-of-duty violations prevented;
+- evidence-preservation success;
+- rollback readiness and success;
+- mission-impact incidents;
+- duplicate-action and partial-failure rates;
+- break-glass use and post-use review.
+
+### Robustness and security
+
+- missing and delayed sources;
+- clock and schema drift;
+- identity-resolution ambiguity;
+- out-of-distribution and unknown attack behavior;
+- evasion, poisoning, feedback manipulation, and threat-feed corruption;
+- passive prompt injection in untrusted text if generative AI is used;
+- policy-service, connector, network, and identity-provider failure;
+- race, replay, idempotency, and stale-precondition tests.
+
+### Privacy, fairness, and human factors
+
+- minimization, retention, access, and secondary-use findings;
+- false-positive and false-negative concentration where analysis is lawful and meaningful;
+- accessibility of verification and appeal paths;
+- analyst disagreement, override, fatigue, automation bias, and reason-code usefulness;
+- employee/citizen impact and contestability for consequential decisions.
+
+## Exit criteria
+
+Thresholds are approved before the final holdout. At minimum:
+
+- no unexplained provenance or identifier reconciliation failure;
+- no analytics-to-enforcement privilege path;
+- zero unauthorized T3 execution;
+- all mandatory guard, expiration, replay, idempotency, and rollback tests pass;
+- queue burden remains within approved capacity or safe fallback activates;
+- source/model failure enters documented degraded mode;
+- privacy, legal, records, labor, accessibility, continuity, and security findings are accepted by owners;
+- claims remain bounded to observed evidence.
+
+Exact performance thresholds are local risk decisions and must not be copied from the 12-row example.
+
+## Reporting
+
+Publish or retain, as authorized:
+
+- protocol and amendments;
+- dataset and label documentation;
+- model/data/policy cards;
+- code/environment and hashes;
+- all primary and sensitivity outcomes;
+- exclusions and missing data;
+- incidents, overrides, and adverse impacts;
+- decision to stop, repeat, rollback, or progress;
+- independent assessment and residual risks.
