@@ -34,6 +34,8 @@ uv run --with-requirements requirements-dev.txt python scripts/build_public_mate
 
 Rebuild twice when the toolchain or build scripts change and verify byte-identical outputs.
 
+Byte identity is expected across repeated builds in the same operating-system and font environment. PDF and raster bytes may differ across platforms because native rendering libraries and fonts differ. `ARTIFACTS.sha256` authenticates the reviewed, checked-in release artifacts; structural checks validate a rebuild in any supported environment.
+
 ## 4. Validate
 
 ```bash

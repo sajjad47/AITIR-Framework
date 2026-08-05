@@ -29,6 +29,8 @@ uv run --with-requirements requirements-dev.txt python scripts/build_public_mate
 
 The repository validator checks that the PDFs contain Version 2.0 markers and verifies their hashes against [`../ARTIFACTS.sha256`](../ARTIFACTS.sha256).
 
+The integrity manifest applies to the reviewed, checked-in artifacts. Repeated builds are byte-identical within a consistent operating-system and font environment; cross-platform PDF or raster bytes may differ because native rendering libraries and fonts differ.
+
 ## Use boundary
 
 These materials may support architecture review, research discussion, grant or professional-development evidence, and controlled-pilot planning. They are not proof of implementation, field performance, agency endorsement, compliance, legal sufficiency, or employment/immigration eligibility.

@@ -63,17 +63,19 @@ jobs:
         run: |
           uv run --with-requirements requirements-dev.txt python scripts/build_architecture.py
           uv run --with-requirements requirements-dev.txt python scripts/build_public_materials.py
+          sha256sum \
+            docs/assets/aitir-framework-architecture.png \
+            public-materials/AITIR-Future-Development-Plan.pdf \
+            public-materials/AITIR-Technical-Exhibit.pdf \
+            > /tmp/aitir-rebuilt.sha256
 
       - name: Verify generated artifacts
         run: >-
           uv run --with-requirements requirements-dev.txt
           python scripts/verify_generated_artifacts.py
 
-      - name: Verify reproducible outputs and manifest
+      - name: Verify deterministic rebuild in runner environment
         run: |
-          python3 scripts/validate_repository.py
-          git diff --exit-code -- \
-            ARTIFACTS.sha256 \
-            docs/assets/aitir-framework-architecture.png \
-            public-materials/AITIR-Future-Development-Plan.pdf \
-            public-materials/AITIR-Technical-Exhibit.pdf
+          uv run --with-requirements requirements-dev.txt python scripts/build_architecture.py
+          uv run --with-requirements requirements-dev.txt python scripts/build_public_materials.py
+          sha256sum --check /tmp/aitir-rebuilt.sha256

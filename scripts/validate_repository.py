@@ -86,7 +86,7 @@ def validate_version() -> None:
         "permissions:\n  contents: read",
         "requirements-dev.txt",
         "scripts/verify_generated_artifacts.py",
-        "git diff --exit-code",
+        "sha256sum --check",
     ):
         check(
             marker in workflow, f"validation workflow lacks required marker: {marker}"
