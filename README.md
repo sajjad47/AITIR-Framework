@@ -1,56 +1,120 @@
-# AITIR Framework
+# AITIR Framework 2.0
 
-**AI-Assisted Adaptive Threat Intelligence and Response for identity-centered public-sector cybersecurity**
+**Adaptive Identity-and-access Threat Intelligence and Response**
 
-AITIR is an early-stage cybersecurity framework developed by Md Sazzad Hossain to support identity-centered threat detection, access-risk prioritization, and response planning in public-sector and law-enforcement technology environments.
+[![Version](https://img.shields.io/badge/version-2.0.0-2563eb)](VERSION)
+[![Status](https://img.shields.io/badge/status-reference%20architecture-f59e0b)](docs/status-and-limitations.md)
+[![License](https://img.shields.io/badge/license-research%20%26%20educational-64748b)](LICENSE.md)
 
-The framework focuses on a practical problem: government systems rely on identity, access, authentication, remote connectivity, endpoint protection, audit trails, and operational continuity at the same time. Traditional access reviews and static control checks remain important, but they do not always help teams prioritize adaptive identity-based threats quickly enough for operational response.
+AITIR Version 2.0 is a vendor-neutral reference architecture for converting identity-centered security telemetry into provenance-linked evidence, a bounded policy decision, an authorized response, and independently reviewable assurance.
 
-AITIR is intended to connect identity and access activity with threat intelligence, contextual risk scoring, and response workflow guidance.
+> **Evidence in, authority out:** analytics produce evidence; authorized policy decides; enforcement acts; assurance verifies.
 
-![AITIR Framework Architecture](docs/assets/aitir-framework-architecture.png)
+A model score, anomaly label, graph rank, indicator match, or generated recommendation never grants itself response authority.
 
-## Documentation
+## Version 2 at a glance
 
+Version 2 replaces the early four-layer conceptual pipeline with seven interacting planes:
+
+1. Governance, risk, and policy
+2. Identity, asset, and telemetry fabric
+3. AITIR analytics
+4. Risk decision and authorization
+5. Response orchestration and case management
+6. Assurance, model risk, and audit
+7. Resilience and continuity
+
+It adds:
+
+- explicit trust boundaries and least-privileged interfaces;
+- separate event, evidence, decision, action, outcome, and feedback contracts;
+- calibrated uncertainty and abstention as first-class decision states;
+- T0-T3 response tiers with named authority and mandatory safeguards;
+- stateful response guards, expiration, idempotency, failure refresh, and rollback;
+- controlled graph-remediation decision support under observation uncertainty;
+- protected feedback and model/policy release gates;
+- current standards mappings and machine-validatable JSON Schemas;
+- corrected, automatically checked synthetic examples;
+- a clear evidence boundary between documentation, synthetic research, pilot evidence, and production assurance.
+
+## Status
+
+**AITIR 2.0 is a reference architecture and research preview, not a production product or certification.** This repository supplies Level L0 documentation and selected L1 conformance artifacts. It does not claim agency deployment, legal sufficiency, NIST/CISA approval, model accuracy in a live organization, or authority to automate consequential actions.
+
+The repository's historical tag is `v0.1`; no formal `v1.0.0` tag existed. Version 2 refers to the pre-2.0 four-layer material as the **Version 1 conceptual baseline** for migration purposes without rewriting Git history.
+
+## Start here
+
+- [Version 2 Specification](docs/version-2-specification.md)
 - [Technical Overview](docs/technical-overview.md)
-- [Framework Architecture](docs/architecture.md)
-- [Public-Sector Use Cases](docs/use-cases.md)
-- [NIST RMF and Control Alignment](docs/nist-rmf-alignment.md)
-- [Proof-of-Concept Demonstration](docs/proof-of-concept.md)
-- [Sample Risk Scoring Model](docs/sample-risk-scoring-model.md)
-- [Pilot Evaluation Protocol](docs/pilot-evaluation-protocol.md)
-- [Public Materials](docs/public-materials.md)
-- [Development Roadmap](docs/roadmap.md)
-- [Research and Publications](docs/research-and-publications.md)
+- [Architecture](docs/architecture.md)
+- [Data Contracts](docs/data-contracts.md)
+- [Response Authority](docs/response-authority.md)
+- [Standards Crosswalk](docs/standards-crosswalk.md)
+- [Migration from Version 1](docs/migration-v1-to-v2.md)
 - [Status and Limitations](docs/status-and-limitations.md)
+- [Roadmap](docs/roadmap.md)
 
-## Intended Users
+## Evaluation and examples
 
-AITIR is designed for cybersecurity professionals, public-sector technology teams, law-enforcement IT environments, academic reviewers, and practitioners interested in identity-centered threat detection and adaptive response planning.
+- [Synthetic Proof of Concept](docs/proof-of-concept.md)
+- [Reference Risk Scoring Model](docs/sample-risk-scoring-model.md)
+- [Pilot Evaluation Protocol](docs/pilot-evaluation-protocol.md)
+- [`examples/synthetic-identity-events.csv`](examples/synthetic-identity-events.csv)
+- [`examples/sample-risk-output.csv`](examples/sample-risk-output.csv)
+- JSON Schemas in [`schemas/`](schemas/)
+- Release-artifact hashes in [`ARTIFACTS.sha256`](ARTIFACTS.sha256)
 
-## Scope
+The 12-row example demonstrates schema, identifier, score-tier, and workflow consistency only. It has no ground-truth attack labels and cannot support claims about detection accuracy, false positives, calibration, operational safety, or return on investment.
 
-AITIR is currently a framework and documentation project. It is not presented as a fully deployed commercial product, certified security tool, or employer-sponsored system. The documentation is public-facing and avoids confidential employer information, sensitive infrastructure details, controlled technical information, or operational security data.
+## Research modules
 
-The repository also includes a synthetic proof-of-concept package. The sample data and scoring examples are illustrative only; they do not contain real agency records, real user activity, employer data, or operational security information.
+Version 2 integrates four clearly bounded AITIR research streams:
 
-AITIR is not documented here as an employment-specific project tied to one agency or one job description. It is presented as a portable public-sector cybersecurity framework that can be reviewed, tested with synthetic or approved anonymized data, refined through practitioner feedback, and developed through future publications and non-confidential pilot evaluation.
+- seven-plane public-sector architecture and governance;
+- calibrated selective scoring and abstention under temporal shift;
+- uncertainty-aware, cost-constrained identity-graph remediation;
+- explicit-state response-authority verification.
 
-## Core Concepts
+See [Research and Publications](docs/research-and-publications.md) and the [Version 2 Research Ledger](research/version-2-research-ledger.md). Submitted manuscripts are labeled as submitted, not accepted.
 
-- Identity and access behavior can be treated as a major source of threat intelligence.
-- Risk scoring should account for user role, access context, system sensitivity, event type, timing, and response urgency.
-- Public-sector environments need explainable and auditable response recommendations.
-- The framework should support secure digital government services, law-enforcement technology environments, and public-sector infrastructure where identity misuse can create public safety, privacy, continuity, or service-delivery risk.
+## Standards and interoperability
+
+AITIR maps to NIST CSF 2.0, RMF, SP 800-53/53A, SP 800-207, SP 800-63-4, SP 800-61 Rev. 3, AI RMF, CISA Zero Trust Maturity Model 2.0, MITRE ATT&CK, OCSF, STIX/TAXII 2.1, CACAO 2.0, and OpenID CAEP/RISC 1.0.
+
+These are mappings, not compliance or endorsement claims.
+
+## Intended users
+
+- public-sector and regulated-environment security architects;
+- identity, zero-trust, SOC, incident-response, and governance teams;
+- researchers evaluating calibrated, explainable, and bounded response;
+- assessors and procurement teams seeking inspectable evidence rather than generic “AI-powered” claims.
+
+## Repository validation
+
+Run:
+
+```bash
+python3 scripts/validate_repository.py
+```
+
+For full JSON Schema validation:
+
+```bash
+uv run --with jsonschema python scripts/validate_repository.py --jsonschema
+```
 
 ## Citation
 
-If referencing this framework, please cite:
+> Hossain, M. S. (2026). *AITIR Framework: Adaptive Identity-and-access Threat Intelligence and Response* (Version 2.0.0) [Reference architecture and documentation]. https://github.com/sajjad47/AITIR-Framework
 
-> Hossain, M. S. (2026). AITIR Framework: AI-Assisted Adaptive Threat Intelligence and Response for Identity-Centered Public-Sector Cybersecurity. Public framework documentation.
+Machine-readable metadata is in [`CITATION.cff`](CITATION.cff).
 
-## Author
+## Responsible use
 
-Md Sazzad Hossain  
-System Analyst | Cybersecurity and Public-Sector Technology  
-Research areas: cybersecurity, artificial intelligence, identity and access security, public-sector cyber resilience, post-quantum cryptography, graph neural networks, and fraud detection.
+Before any operational implementation, obtain local security authorization; privacy, legal, records, labor, accessibility, and continuity review; independent assessment; and tested rollback. Keep analytics outside the enforcement trust root. Do not use synthetic examples or manuscript results as evidence that an implementation is safe for real people or essential services.
+
+## License
+
+See [`LICENSE.md`](LICENSE.md). External standards, publications, datasets, and referenced software retain their own terms.

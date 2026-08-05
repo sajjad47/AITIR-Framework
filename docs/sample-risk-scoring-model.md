@@ -1,47 +1,93 @@
-# Sample Risk Scoring Model
+# AITIR 2.0 Reference Risk Scoring Model
 
-This page describes a sample scoring model for AITIR using synthetic events. The model is intentionally simple and explainable so public-sector reviewers can evaluate the logic.
+**Version:** 2.0.0
+**Status:** Synthetic teaching illustration; not a production model
 
-## Risk Score Components
+## Semantic rule
 
-Each event can receive points from the following categories:
+AITIR distinguishes:
 
-| Feature | Example Condition | Points |
-|---|---:|---:|
-| Sensitive system | Criminal justice, public-service portal, financial, identity platform | 15 |
-| Privileged role | Administrator, security analyst, database operator | 15 |
-| Abnormal timing | Outside normal business hours or unusual access window | 10 |
-| Remote-access anomaly | New VPN location, unusual network, impossible travel indicator | 15 |
-| Authentication concern | Failed MFA, repeated failed login, disabled MFA, password reset anomaly | 15 |
-| Endpoint concern | Unmanaged device, missing patch, endpoint alert | 10 |
-| Threat intelligence match | Known suspicious IP, indicator match, suspicious geolocation | 20 |
-| Prior related activity | Multiple related events within review window | 10 |
+- anomaly score;
+- heuristic risk score;
+- calibrated probability;
+- uncertainty;
+- impact;
+- policy risk;
+- response authority.
 
-## Risk Levels
+The example implements only a heuristic risk score. It MUST NOT be described as a probability, confidence, calibrated threat likelihood, or authorization.
 
-| Score Range | Risk Level | Review Priority |
-|---:|---|---|
-| 0-24 | Low | Routine review or documentation |
-| 25-49 | Medium | Analyst review recommended |
-| 50+ | High | Prompt review and escalation consideration |
+## Feature table
 
-## Response Mapping
+| Feature | Points | Synthetic rationale |
+|---|---:|---|
+| failed authentication | 10 | repeated failure may merit context review |
+| privilege change | 25 | entitlement changes can increase exposure |
+| sensitive resource | 15 | potential impact is higher |
+| after-hours activity | 10 | temporal deviation may require explanation |
+| unmanaged/noncompliant device | 15 | posture can weaken assurance |
+| high-risk country flag | 20 | policy-defined context flag, not nationality inference |
+| recent threat-intelligence match | 25 | corroborating external evidence may raise priority |
 
-| Risk Level | Example Response |
-|---|---|
-| Low | Document event; review during routine access monitoring. |
-| Medium | Assign analyst review; verify business justification; check related activity. |
-| High | Escalate for prompt review; validate user/session; consider containment or access review. |
+`risk_score` is the sum of present feature points.
 
-## Explainability Requirement
+## Tier mapping
 
-Every score should include a plain-language explanation. AITIR should not produce a risk score without showing the main risk drivers.
+```text
+0-24  -> Low
+25-49 -> Medium
+50+   -> High
+```
 
-Example:
+No upper bound is implied by the formula, although the synthetic file uses values below 100.
 
-> High risk because the event involved privileged access to a sensitive system, abnormal timing, and a threat-intelligence match.
+## Version 2 response mapping
 
-## Limitations
+Risk tier does not determine response tier automatically.
 
-This scoring model is illustrative. It is not a certified algorithm and should not be used as a live security-control decision engine without agency review, validation, tuning, legal review, and operational testing.
+| Risk level | Default synthetic disposition | Maximum recommendation without separate authority |
+|---|---|---|
+| Low | observe | T0 enrichment or watch condition |
+| Medium | abstain to analyst review | T0 investigation support or T1 verification proposal |
+| High | urgent abstention to authorized review | T1 verification proposal; T2/T3 require independent policy and authority |
 
+A real policy may choose a lower-impact control or no action. It must consider evidence freshness, data quality, calibration, counter-evidence, mission impact, target criticality, blast radius, holds, rollback, and authority.
+
+## Example results
+
+The checked-in output contains 3 High, 8 Medium, and 1 Low event. The validator recomputes scores and tiers from the event flags and rejects inconsistent counts.
+
+## Why this is not calibration
+
+Calibration asks whether stated probabilities correspond to observed frequencies on held-out data. This example has no labels and does not output probabilities. A production probability requires:
+
+1. a defined prediction target and timestamp;
+2. representative training data;
+3. a held-out calibration period;
+4. a later untouched test period;
+5. Brier score, reliability analysis, and uncertainty;
+6. monitoring for calibration decay and domain shift.
+
+## Selective prediction
+
+If a model later provides a calibrated probability, Version 2 still permits abstention. Coverage is chosen from validation data with explicit error and review costs. Required reporting includes:
+
+- accepted-set error or risk;
+- abstention/review rate;
+- false alerts and reviews per operational unit;
+- queue capacity and aging;
+- sensitivity to reviewer accuracy and cost;
+- behavior under temporal and attack-family shift.
+
+## Threats to validity
+
+- feature weights are subjective;
+- binary flags discard magnitude and sequence;
+- country flags can be crude, discriminatory, or operationally misleading;
+- an after-hours event can be mission necessary;
+- threat feeds contain false, stale, or low-context indicators;
+- additive points ignore interactions and missingness;
+- static thresholds drift;
+- high impact is not proof of malicious intent.
+
+Use this model only to test documentation, schema, and workflow logic.

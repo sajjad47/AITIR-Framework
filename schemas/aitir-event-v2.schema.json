@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/sajjad47/AITIR-Framework/schemas/aitir-event-v2.schema.json",
+  "title": "AITIR Event Object",
+  "description": "Normalized identity-centered security event for AITIR Version 2.0.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["event_id", "schema_version", "event_time", "ingest_time", "source", "subject", "activity", "data_quality", "governance"],
+  "properties": {
+    "event_id": {"type": "string", "pattern": "^[A-Za-z0-9._:-]{3,128}$"},
+    "schema_version": {"const": "2.0.0"},
+    "event_time": {"type": "string", "format": "date-time"},
+    "ingest_time": {"type": "string", "format": "date-time"},
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["system", "event_type", "integrity"],
+      "properties": {
+        "system": {"type": "string", "minLength": 1},
+        "event_type": {"type": "string", "minLength": 1},
+        "record_reference": {"type": "string"},
+        "integrity": {"enum": ["verified", "unverified", "failed"]},
+        "collector_version": {"type": "string"}
+      }
+    },
+    "subject": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "type"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "type": {"enum": ["person", "service-account", "workload", "device", "unknown"]},
+        "assurance_level": {"type": ["string", "null"]},
+        "resolution_confidence": {"type": ["number", "null"], "minimum": 0, "maximum": 1}
+      }
+    },
+    "resource": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "required": ["id", "type", "sensitivity"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "type": {"type": "string", "minLength": 1},
+        "sensitivity": {"enum": ["low", "moderate", "high", "critical", "unknown"]}
+      }
+    },
+    "activity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "outcome"],
+      "properties": {
+        "type": {"type": "string", "minLength": 1},
+        "outcome": {"enum": ["success", "failure", "unknown"]}
+      }
+    },
+    "context": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "device_id": {"type": ["string", "null"]},
+        "device_posture": {"enum": ["compliant", "noncompliant", "unknown"]},
+        "source_ip": {"type": ["string", "null"]},
+        "country": {"type": ["string", "null"], "pattern": "^[A-Z]{2}$"},
+        "privilege_level": {"enum": ["standard", "elevated", "privileged", "unknown"]},
+        "mission_state": {"type": ["string", "null"]},
+        "approved_exception": {"type": "boolean"}
+      }
+    },
+    "data_quality": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["completeness", "flags"],
+      "properties": {
+        "completeness": {"type": "number", "minimum": 0, "maximum": 1},
+        "flags": {"type": "array", "items": {"type": "string"}, "uniqueItems": true}
+      }
+    },
+    "governance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["classification", "purpose", "retention_until"],
+      "properties": {
+        "classification": {"enum": ["public", "internal", "sensitive", "restricted"]},
+        "purpose": {"type": "string", "minLength": 1},
+        "retention_until": {"type": "string", "format": "date-time"},
+        "tenant": {"type": ["string", "null"]}
+      }
+    }
+  }
+}

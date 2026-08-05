@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>AITIR 2.0 Future Development Plan</title>
+<style>
+@page{size:Letter;margin:.58in .62in .62in;@bottom-left{content:"AITIR Framework 2.0 · Future Development Plan";font:8pt Arial;color:#64748b}@bottom-right{content:"Page " counter(page) " of " counter(pages);font:8pt Arial;color:#64748b}}
+*{box-sizing:border-box}body{font-family:Arial,Helvetica,sans-serif;color:#172638;font-size:9.3pt;line-height:1.4;margin:0}h1{font-size:27pt;line-height:1.08;color:#103a57;margin:0 0 12pt}h2{font-size:17pt;color:#0f5c79;border-bottom:2px solid #20a4b8;padding-bottom:5pt;margin:0 0 12pt}h3{font-size:11.5pt;color:#164e63;margin:12pt 0 5pt}p{margin:0 0 7pt}ul,ol{margin:4pt 0 8pt 18pt;padding:0}li{margin:0 0 3pt}table{border-collapse:collapse;width:100%;font-size:8.2pt;margin:8pt 0 12pt}th{background:#0f5c79;color:#fff;text-align:left;padding:5.5pt}td{border:1px solid #c9d8dc;padding:5pt;vertical-align:top}tr:nth-child(even) td{background:#f0f8f9}.page{page-break-after:always;min-height:9.45in}.page:last-child{page-break-after:auto}.kicker{text-transform:uppercase;letter-spacing:1.4pt;color:#0e7490;font-weight:bold;font-size:9pt}.rule{width:92px;height:5px;background:#20a4b8;margin:20pt 0}.lead{font-size:13pt;line-height:1.45;color:#36576b}.cover{margin-top:34pt;padding:18pt;border:1px solid #b5d3da;background:#f1f8fa}.callout{border-left:5px solid #20a4b8;background:#edf9fb;padding:10pt 12pt;margin:10pt 0}.amber{border-left-color:#f59e0b;background:#fff7e8}.red{border-left-color:#dc2626;background:#fff1f2}.phase{border-left:6px solid #20a4b8;padding:8pt 12pt;margin:9pt 0;background:#f3f8fa}.phase b{color:#0f5c79;font-size:11pt}.gate{font-size:8.3pt;background:#e7f5f7;border:1px solid #88cbd4;padding:6pt;margin-top:6pt}.two{display:grid;grid-template-columns:1fr 1fr;gap:14pt}.small{font-size:8pt;color:#64748b}.badge{display:inline-block;border-radius:12px;padding:3pt 8pt;margin:2pt;background:#dff4f7;color:#155e75;font-size:8pt;font-weight:bold}
+</style></head><body>
+<section class="page">
+<div class="kicker">Evidence-Gated Research and Development Plan</div><div class="rule"></div>
+<h1>AITIR Framework<br>Version 2.0<br>Future Development Plan</h1>
+<p class="lead">A staged program for moving from a technically specified reference architecture to reproducible artifacts, controlled research, and, only if authorized evidence supports it, restricted operational capability.</p>
+<div class="cover"><p><b>Author:</b> Md Sazzad Hossain</p><p><b>Affiliation:</b> School of Business and Technology, Emporia State University</p><p><b>ORCID:</b> 0009-0009-4948-1179</p><p><b>Plan version:</b> 2.0.0 · 5 August 2026</p><p><b>Repository:</b> https://github.com/sajjad47/AITIR-Framework</p></div>
+<div class="callout amber" style="margin-top:28pt"><b>Program rule:</b> Progression is earned by evidence. Documentation does not become implementation by adding features, and a synthetic benchmark does not become operational assurance by adding claims.</div>
+<p class="small" style="margin-top:72pt">This plan is a research and engineering roadmap. It does not represent funded work, a government commitment, a production deployment, a compliance determination, or a promise of performance.</p>
+</section>
+
+<section class="page">
+<h2>1 · Version 2 Baseline and Program Controls</h2>
+<h3>Baseline delivered in Version 2.0</h3>
+<div><span class="badge">7-plane architecture</span><span class="badge">5 trust zones</span><span class="badge">event/evidence/decision schemas</span><span class="badge">T0-T3 authority</span><span class="badge">12 guard categories</span><span class="badge">state machine</span><span class="badge">migration guide</span><span class="badge">standards crosswalk</span><span class="badge">research ledger</span><span class="badge">automated validation</span></div>
+<p>The repository establishes Level L0 documentation and selected L1 artifacts. It contains no production implementation, trained model, live telemetry, enforcement connector, field validation, or system authorization.</p>
+<h3>Decision gates</h3>
+<table><tr><th>Gate</th><th>Decision</th><th>Required evidence</th></tr>
+<tr><td>G0 Architecture</td><td>Is the design coherent enough to implement?</td><td>threat model, trust boundaries, contracts, owners, authority, limitations</td></tr>
+<tr><td>G1 Artifact</td><td>Do reference components conform?</td><td>schema, policy, state, security, reproducibility and negative tests</td></tr>
+<tr><td>G2 Research</td><td>Can claims survive chronological controlled evaluation?</td><td>frozen protocol, leakage control, uncertainty, sensitivity, independent review</td></tr>
+<tr><td>G3 Pilot</td><td>May shadow/advisory use begin?</td><td>lawful purpose, approvals, privacy, records, labor, accessibility, continuity</td></tr>
+<tr><td>G4 Restricted action</td><td>May narrow T0/T1 or approved T2 execute?</td><td>authorization, guard tests, fault injection, rollback, monitoring, stop criteria</td></tr>
+<tr><td>G5 Sustain/stop</td><td>Should capability continue, narrow, roll back, or end?</td><td>multi-period outcomes, incidents, harms, burden, cost, reassessment</td></tr></table>
+<h3>Cross-cutting governance</h3>
+<div class="two"><div><ul><li>mission and system owner</li><li>identity and incident-response owner</li><li>privacy, legal, records and civil-rights review</li><li>labor and accessibility review where applicable</li></ul></div><div><ul><li>model-risk validation</li><li>secure development and supply-chain controls</li><li>continuity and recovery owner</li><li>independent assessment and authorization</li></ul></div></div>
+<div class="callout red"><b>Prohibited shortcut:</b> No phase may give analytics direct enforcement credentials or treat an AI explanation, threat indicator, graph rank, or playbook as response authority.</div>
+</section>
+
+<section class="page">
+<h2>2 · Phased Technical Work</h2>
+<div class="phase"><b>Phase 2.0.x · Documentation hardening</b><p>External review, machine-readable mappings, schema examples, decision vectors, diagram/PDF provenance, release signing, and issue remediation.</p><div class="gate"><b>Exit:</b> examples validate; generated artifacts reproduce; no unresolved high-severity ambiguity.</div></div>
+<div class="phase"><b>Phase 2.1 · Local reference implementation</b><p>Separate event, evidence, decision, and enforcement privilege domains; deterministic baseline; immutable decision records; simulated connectors and rollback; SBOM, threat model, model/data cards.</p><div class="gate"><b>Exit:</b> automated security and conformance suite passes; analytics has no enforcement path.</div></div>
+<div class="phase"><b>Phase 2.2 · Offline research harness</b><p>Chronological replay, leakage-safe feature construction, calibration, abstention and queue-cost analysis, uncertain identity graphs, source/model/feedback adversarial tests, and uncertainty intervals.</p><div class="gate"><b>Exit:</b> frozen reproducible benchmark with negative results and external-validity limits.</div></div>
+<div class="phase"><b>Phase 2.3 · Controlled pilot package</b><p>Impact-assessment templates, local T0-T3 catalog, tabletop/offline/shadow procedures, analyst workflow instrumentation, connector fault injection, continuity and independent-assessment package.</p><div class="gate"><b>Exit:</b> authorized shadow mode only; no state-changing automation.</div></div>
+<div class="phase"><b>Phase 2.x pilot · Advisory then narrow controls</b><p>Advance from live shadow to advisory, then narrowly preapproved T0/T1. Restricted T2 is considered only after independent evidence and explicit authorization. T3 remains named-human authorized.</p><div class="gate"><b>Exit:</b> sustained thresholds, safe failure, rollback, queue capacity, privacy and mission outcomes.</div></div>
+<h3>Version 3 trigger</h3>
+<p>A major version is considered only when controlled evidence reveals a necessary incompatible change to object contracts, authority semantics, or response state. Marketing cadence is not a valid trigger.</p>
+</section>
+
+<section class="page">
+<h2>3 · Research and Evaluation Work Packages</h2>
+<table><tr><th>Work package</th><th>Primary outputs</th><th>Failure questions</th></tr>
+<tr><td>Telemetry and identity fabric</td><td>source maps, schema adapters, health metrics, uncertain resolution</td><td>loss, drift, replay, false join, cross-tenant leak</td></tr>
+<tr><td>Calibrated analytics</td><td>model/data cards, chronological benchmark, calibration, uncertainty</td><td>overconfidence, unknown attack, leakage, temporal decay</td></tr>
+<tr><td>Selective review</td><td>coverage-risk, queue simulation, reviewer protocol, cost sensitivity</td><td>overload, delay, disagreement, automation bias, selective labels</td></tr>
+<tr><td>Identity graph</td><td>relation-confidence model, remediation ranking, cost definition</td><td>spurious/missing edge, wasted action, service disruption</td></tr>
+<tr><td>Response authority</td><td>local decision table, state machine, reason codes, test vectors</td><td>bypass, stale/replayed decision, separation failure, break-glass abuse</td></tr>
+<tr><td>Orchestration</td><td>simulated connectors, idempotency, evidence preservation, rollback</td><td>race, duplicate, partial failure, false success, irreversible harm</td></tr>
+<tr><td>Assurance and resilience</td><td>release gates, SBOM, drift, incidents, degraded modes, recovery</td><td>unsafe fail-open/closed, poisoned feedback, unsupported claim</td></tr></table>
+<h3>Minimum measurement set</h3>
+<div class="two"><div><b>Analytical</b><ul><li>precision-recall and family recall</li><li>false alerts per operational unit</li><li>Brier score and reliability</li><li>coverage-risk and abstention rate</li><li>uncertainty intervals</li></ul></div><div><b>Operational safety</b><ul><li>unauthorized actions</li><li>queue age and burden</li><li>rollback and evidence preservation</li><li>duplicate/partial action</li><li>mission and privacy impact</li></ul></div></div>
+<div class="callout"><b>Protocol discipline:</b> Fit on training only, choose model/calibration/threshold/coverage on validation only, evaluate once on a later holdout, and disclose every deviation.</div>
+<h3>Research module boundaries</h3>
+<p>Current AITIR studies provide bounded starting evidence for architecture, abstention, graph remediation, and response verification. They do not supply a universal production policy, real-world relation-confidence model, perfect reviewer, or live safety guarantee.</p>
+</section>
+
+<section class="page">
+<h2>4 · Pilot Governance, Risk and Stop Criteria</h2>
+<h3>Required local artifacts</h3>
+<ul><li>system boundary, data-flow and trust-boundary diagrams;</li><li>purpose, authority, privacy, records, labor, accessibility and continuity decisions;</li><li>local identity, asset, entitlement and connector inventory;</li><li>local T0-T3 action catalog and authority matrix;</li><li>data/model/policy/playbook/connector cards and release approvals;</li><li>abstention queue owner, service objective, capacity and fallback;</li><li>incident, evidence, rollback, break-glass and appeal procedures;</li><li>independent assessment and residual-risk acceptance.</li></ul>
+<h3>Stop or roll back when</h3>
+<table><tr><th>Trigger</th><th>Required response</th></tr>
+<tr><td>analytics gains direct enforcement authority</td><td>stop immediately; revoke privilege; investigate control failure</td></tr>
+<tr><td>unauthorized, expired, replayed or duplicate action</td><td>contain, preserve evidence, roll back, suspend affected tier</td></tr>
+<tr><td>queue exceeds approved age/capacity</td><td>activate approved fallback; reduce coverage or automation</td></tr>
+<tr><td>source/model/calibration degradation exceeds threshold</td><td>enter deterministic degraded mode; revalidate</td></tr>
+<tr><td>material privacy, accessibility, labor, civil-rights or mission harm</td><td>stop affected use; notify owner; investigate and remediate</td></tr>
+<tr><td>connector cannot verify target state or rollback</td><td>treat as failed/unknown; block retry pending refreshed decision</td></tr>
+<tr><td>evidence cannot reproduce a material claim</td><td>withdraw or correct claim and generated materials</td></tr></table>
+<h3>Safe degraded operation</h3>
+<p>Loss of a source, model, policy service, identity provider, network, or connector enters an explicit mode. The default is neither unrestricted access nor indiscriminate denial. Approved deterministic policy, stronger verification, narrow mission continuity, and time-bound break-glass are used as authorized.</p>
+<div class="callout amber"><b>Human review is not a universal safety net.</b> Reviewers can be overloaded, biased, inconsistent or missing key evidence. Their performance and the consequences of delay must be measured.</div>
+</section>
+
+<section class="page">
+<h2>5 · Deliverables, Resourcing and Claim Discipline</h2>
+<h3>Deliverable families</h3>
+<table><tr><th>Family</th><th>Examples</th></tr>
+<tr><td>Architecture</td><td>requirements, diagrams, threat model, contracts, interoperability mappings</td></tr>
+<tr><td>Reference software</td><td>local services, schemas, policy engine, simulators, validation and test suites</td></tr>
+<tr><td>Research</td><td>frozen protocols, benchmark code, lawful datasets or generators, analysis and negative results</td></tr>
+<tr><td>Governance</td><td>authority matrix, impact assessments, data/model/policy cards, risk and exception registers</td></tr>
+<tr><td>Assurance</td><td>SBOM, security tests, independent assessment, incidents, release hashes and signatures</td></tr>
+<tr><td>Pilot</td><td>tabletop, offline, shadow, advisory and restricted-operation packages with stop criteria</td></tr></table>
+<h3>Capability roles</h3>
+<p>Work requires security and identity architecture, incident response, data engineering, ML/statistics, graph methods, privacy/legal/records expertise, accessibility and human factors, secure software engineering, continuity planning, independent testing, and mission ownership. One model-development team cannot substitute for these roles.</p>
+<h3>Claim ladder</h3>
+<ol><li><b>Proposed:</b> architectural requirement or hypothesis.</li><li><b>Implemented:</b> source and tests exist.</li><li><b>Reproduced:</b> checked-in artifacts regenerate.</li><li><b>Validated:</b> frozen target-environment protocol supports a bounded claim.</li><li><b>Authorized:</b> accountable official accepts residual risk for stated use.</li><li><b>Assured:</b> sustained monitoring and independent reassessment continue.</li></ol>
+<div class="callout red"><b>Never collapse the ladder.</b> “AI-powered,” “zero trust,” standards mapping, publication, or successful synthetic testing does not mean production-safe, compliant, approved, or autonomous.</div>
+<h3>Program non-goals</h3>
+<ul><li>unrestricted autonomous response;</li><li>silent self-training or policy mutation;</li><li>replacement of identity providers, SIEM, SOAR, case management or authorization;</li><li>collection of real protected data in the public repository;</li><li>performance, savings or public-sector impact claims without evidence.</li></ul>
+<p class="small" style="margin-top:22pt">Canonical framework citation: Hossain, M. S. (2026). <i>AITIR Framework: Adaptive Identity-and-access Threat Intelligence and Response</i> (Version 2.0.0). https://github.com/sajjad47/AITIR-Framework</p>
+<p class="small">Generated 5 August 2026. Full roadmap, specification, schemas, research ledger and validation are maintained in the repository.</p>
+</section>
+</body></html>

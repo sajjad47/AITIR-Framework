@@ -1,59 +1,86 @@
-# Development Roadmap
+# AITIR 2.0 Roadmap
 
-AITIR is an early-stage framework. The roadmap below describes planned development over the next 12 to 24 months.
+**Version:** 2.0.0
 
-## Phase 1: Public Documentation and Framework Definition
+The roadmap advances evidence maturity rather than feature volume. Progression is gated by safety, reproducibility, privacy, authority, continuity, and independent review.
 
-Status: in progress
+## Completed for Version 2.0
 
-- publish framework overview and architecture;
-- define inputs, analysis layers, prioritization logic, and response workflow;
-- document public-sector use cases;
-- maintain a public version that avoids confidential employer information.
+- formal semantic version and canonical acronym expansion;
+- seven-plane architecture and trust boundaries;
+- event, evidence, and decision JSON Schemas;
+- T0-T3 decision tiers and explicit abstention;
+- stateful response-authority model and twelve guard categories;
+- standards and interoperability crosswalk;
+- Version 1 migration guide;
+- corrected synthetic example and automated consistency validation;
+- research ledger with evidence hierarchy and publication status;
+- updated public technical and future-development materials.
 
-## Phase 2: Rule and Scoring Model Prototype
+## 2.0.x: Documentation hardening
 
-Planned:
+- collect external architecture and policy review;
+- resolve reported documentation and schema issues;
+- publish machine-readable crosswalk tables;
+- add schema examples for CAEP/RISC, STIX/TAXII, OCSF, and CACAO mappings;
+- add decision-table and state-machine conformance vectors;
+- establish release signing and provenance for generated PDFs and diagrams.
 
-- define a sample risk-feature schema;
-- create example scoring logic for identity-centered events;
-- document explainability requirements;
-- develop sample, synthetic event scenarios for demonstration.
+**Exit gate:** all examples validate; no unresolved high-severity documentation ambiguity; release artifacts reproduce from source.
 
-## Phase 3: Practitioner Review
+## 2.1: Reference implementation
 
-Planned:
+- build a local-only reference pipeline with synthetic data;
+- implement event -> evidence -> decision interfaces as separate services or privilege domains;
+- add deterministic rules, simple anomaly baseline, and explicit out-of-domain behavior;
+- implement policy-as-code tests without production connectors;
+- add immutable decision records, idempotency, and simulated rollback;
+- publish SBOM, threat model, and model/data cards.
 
-- seek feedback from cybersecurity practitioners, public-sector technology professionals, and academic reviewers;
-- refine terminology and workflow based on reviewer feedback;
-- document revisions in changelog form.
+**Exit gate:** full automated tests; independent code review; no analytics principal has enforcement credentials.
 
-## Phase 4: Publication and Dissemination
+## 2.2: Offline research harness
 
-Planned:
+- support chronological replay and leakage-safe partitioning;
+- implement calibration, coverage-risk, abstention, and queue-cost analysis;
+- add identity-graph relation confidence and remediation ranking;
+- test source loss, clock drift, schema drift, identity ambiguity, poisoning, evasion, and prompt injection;
+- add uncertainty intervals and attack-family reporting.
 
-- prepare additional peer-reviewed or preprint publications on AITIR;
-- publish public cybersecurity articles explaining identity-centered threat risks;
-- share the framework with public-sector cybersecurity professionals for review.
+**Exit gate:** reproducible benchmark outputs with frozen protocol and evidence boundaries.
 
-## Phase 5: Demonstration Materials
+## 2.3: Controlled pilot package
 
-Planned:
+- develop privacy impact, civil-rights, records, labor, accessibility, and continuity templates;
+- define local decision-rights and T0-T3 action catalog;
+- provide tabletop, offline replay, and shadow-mode procedures;
+- instrument analyst queue, disagreement, override, aging, and burden;
+- add connector simulators and fault injection;
+- define independent assessment and pilot exit criteria.
 
-- build non-confidential sample scenarios;
-- create diagrams and example workflow artifacts;
-- prepare a basic analyst playbook for identity-centered event review.
+**Exit gate:** architecture review and authorized shadow mode; no live state-changing automation.
 
-## Phase 6: Future Implementation Path
+## 3.0 consideration
 
-Planned:
+Version 3 will be considered only after evidence from controlled pilots identifies stable requirements that cannot be added compatibly. A major release would require demonstrated need for contract, authority, or state-machine incompatibility, not marketing cadence.
 
-- evaluate the framework against synthetic or publicly available data where appropriate;
-- explore pilot-style review in non-confidential settings;
-- improve the model based on feedback, publication review, and practical constraints.
+## Non-goals
 
-## Independence From One Employer
+The roadmap does not target:
 
-AITIR is not dependent on one employer, one government agency, or one proprietary system. It is structured as a portable framework that can be advanced through research, publication, documentation, practitioner feedback, public cybersecurity writing, and future non-confidential prototypes.
+- unrestricted autonomous response;
+- elimination of human responsibility;
+- silent continuous self-training;
+- replacing identity providers, SIEM, SOAR, case management, or RMF authorization;
+- collecting real personal or classified data in this public repository;
+- claiming compliance or operational benefit without assessment evidence.
 
-Current public-sector employment experience may inform the practical problem space, but it is not the proposed framework itself. AITIR can continue through public documentation, synthetic proof-of-concept development, expert review, professional dissemination, and pilot evaluation independent of any single employer-sponsored role.
+## Contribution priorities
+
+1. contradictory or unsafe requirements;
+2. schema and example conformance;
+3. threat-model and trust-boundary gaps;
+4. policy/state-machine tests;
+5. reproducibility and measurement quality;
+6. interoperability mappings;
+7. implementation convenience.

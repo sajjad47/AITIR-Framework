@@ -1,0 +1,47 @@
+{
+  "event_id": "EVT-002",
+  "schema_version": "2.0.0",
+  "event_time": "2026-07-01T02:11:00Z",
+  "ingest_time": "2026-07-01T02:11:09Z",
+  "source": {
+    "system": "idp-demo",
+    "event_type": "authentication",
+    "record_reference": "synthetic:EVT-002",
+    "integrity": "verified",
+    "collector_version": "demo-2.0.0"
+  },
+  "subject": {
+    "id": "USR-102",
+    "type": "person",
+    "assurance_level": "synthetic",
+    "resolution_confidence": 1.0
+  },
+  "resource": {
+    "id": "DB-ADMIN",
+    "type": "database",
+    "sensitivity": "critical"
+  },
+  "activity": {
+    "type": "login",
+    "outcome": "failure"
+  },
+  "context": {
+    "device_id": "DEVICE-DEMO-02",
+    "device_posture": "noncompliant",
+    "source_ip": "203.0.113.22",
+    "country": "ZZ",
+    "privilege_level": "privileged",
+    "mission_state": "normal",
+    "approved_exception": false
+  },
+  "data_quality": {
+    "completeness": 0.95,
+    "flags": ["geo-policy-demo"]
+  },
+  "governance": {
+    "classification": "internal",
+    "purpose": "synthetic-framework-demonstration",
+    "retention_until": "2026-08-01T00:00:00Z",
+    "tenant": "demo"
+  }
+}

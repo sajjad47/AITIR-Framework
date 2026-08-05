@@ -1,0 +1,9 @@
+# AITIR 2.0.0 release-artifact SHA-256 manifest
+b4fa6cfcd1be42a8ea67f0f2f792c693d0c79a1ffc37763b2853e40812d9dfa7  docs/assets/aitir-framework-architecture.png
+744765e9cca855ea499eda90be70dfc0e953ef4d69e192ebecc97f93b42d8cf9  examples/sample-risk-output.csv
+b0eb19da0e07446c605f64af95c5edee4caba2c0c46fb30c6ec4cf0034525e38  examples/synthetic-identity-events.csv
+9f3184bd20fcd967dd14251efdb15f92031d2c9cf28212fcc07fd005fbc14291  public-materials/AITIR-Future-Development-Plan.pdf
+1e09ab8e726a84ed7ce868fe7830037d7548bddb147157a0a561cd0bf21becc0  public-materials/AITIR-Technical-Exhibit.pdf
+4e835c89c355e66c28a70c9353231087076a76bb96a7226fec86bdbf09db84e0  schemas/aitir-decision-v2.schema.json
+e1bf6529c688c8bff98523390ec51b8209f83e7080d808acf1ff0b2b0dc1a904  schemas/aitir-event-v2.schema.json
+afba0d8a54d4b8169c2ea43225182f2d475d1fbefb1dddd909fc7a5fa97e1664  schemas/aitir-evidence-v2.schema.json

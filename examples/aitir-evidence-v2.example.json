@@ -1,0 +1,53 @@
+{
+  "evidence_id": "EVD-002",
+  "schema_version": "2.0.0",
+  "created_at": "2026-07-01T02:12:00Z",
+  "expires_at": "2026-07-01T03:11:00Z",
+  "producer": "synthetic-heuristic-demo",
+  "subject_id": "USR-102",
+  "resource_ids": ["DB-ADMIN"],
+  "event_ids": ["EVT-002"],
+  "analysis_window": {
+    "start": "2026-07-01T02:11:00Z",
+    "end": "2026-07-01T02:11:00Z"
+  },
+  "provenance": {
+    "feature_schema_version": "2.0.0-demo",
+    "pipeline_version": "2.0.0-demo",
+    "model_version": null,
+    "calibrator_version": null,
+    "rule_set_version": "synthetic-risk-points-2.0.0",
+    "graph_version": null,
+    "threat_intelligence_refs": []
+  },
+  "scores": [
+    {
+      "name": "synthetic-risk-score",
+      "score_type": "heuristic-risk",
+      "value": 70,
+      "unit": "points",
+      "calibration_status": "not-calibrated"
+    }
+  ],
+  "uncertainty": {
+    "method": "not-estimated",
+    "value": null,
+    "meaning": "The synthetic heuristic does not estimate statistical uncertainty."
+  },
+  "risk_drivers": ["failed-authentication", "critical-resource", "after-hours", "noncompliant-device", "synthetic-high-risk-geography"],
+  "counter_evidence": [],
+  "attack_mappings": [],
+  "quality": {
+    "source_health": "healthy",
+    "data_quality_flags": ["geo-policy-demo"]
+  },
+  "applicability": {
+    "status": "in-domain",
+    "reason": "Synthetic demonstration only."
+  },
+  "recommended_action": "step-up-authentication",
+  "integrity": {
+    "algorithm": "sha256",
+    "digest": "0000000000000000000000000000000000000000000000000000000000000000"
+  }
+}
