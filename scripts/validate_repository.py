@@ -60,9 +60,37 @@ def validate_version() -> None:
         "docs/response-authority.md",
         "docs/migration-v1-to-v2.md",
         "docs/standards-crosswalk.md",
+        "docs/release-process.md",
     ]
     for path in versioned_docs:
         check("2.0.0" in read(path), f"{path} lacks Version 2.0.0 marker")
+
+    required_governance = [
+        ".github/ISSUE_TEMPLATE/config.yml",
+        ".github/ISSUE_TEMPLATE/defect.yml",
+        ".github/ISSUE_TEMPLATE/proposal.yml",
+        ".github/PULL_REQUEST_TEMPLATE.md",
+        ".github/dependabot.yml",
+        ".github/workflows/validate.yml",
+        "CODE_OF_CONDUCT.md",
+        "CONTRIBUTING.md",
+        "SECURITY.md",
+        "requirements-dev.txt",
+        "scripts/verify_generated_artifacts.py",
+    ]
+    for path in required_governance:
+        check((ROOT / path).is_file(), f"missing governance or automation file: {path}")
+
+    workflow = read(".github/workflows/validate.yml")
+    for marker in (
+        "permissions:\n  contents: read",
+        "requirements-dev.txt",
+        "scripts/verify_generated_artifacts.py",
+        "git diff --exit-code",
+    ):
+        check(
+            marker in workflow, f"validation workflow lacks required marker: {marker}"
+        )
 
 
 def validate_links() -> None:
@@ -185,6 +213,13 @@ def validate_json(use_jsonschema: bool) -> None:
         check(
             example.get("schema_version") == "2.0.0",
             f"wrong example version in {example_path}",
+        )
+        expected_id = (
+            "https://raw.githubusercontent.com/sajjad47/AITIR-Framework/"
+            f"v2.0.0/{schema_path}"
+        )
+        check(
+            schema.get("$id") == expected_id, f"non-release schema ID in {schema_path}"
         )
         if use_jsonschema:
             from jsonschema import Draft202012Validator, FormatChecker

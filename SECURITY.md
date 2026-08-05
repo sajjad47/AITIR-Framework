@@ -8,7 +8,7 @@ AITIR is a reference architecture and research preview, not a hosted service or 
 
 ## Reporting a security issue
 
-Do not open a public issue if a report would expose a credential, unsafe response path, privacy vulnerability, or exploitable implementation detail. Contact the maintainer through the repository's private security-reporting mechanism when available, or through the author contact in `CITATION.cff`. Include:
+Do not open a public issue if a report would expose a credential, unsafe response path, privacy vulnerability, or exploitable implementation detail. Use [GitHub private vulnerability reporting](https://github.com/sajjad47/AITIR-Framework/security/advisories/new). Include:
 
 - affected version, file, schema, or script;
 - impact and plausible misuse;

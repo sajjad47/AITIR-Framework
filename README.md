@@ -2,7 +2,9 @@
 
 **Adaptive Identity-and-access Threat Intelligence and Response**
 
-[![Version](https://img.shields.io/badge/version-2.0.0-2563eb)](VERSION)
+[![Release](https://img.shields.io/github/v/release/sajjad47/AITIR-Framework?display_name=tag&sort=semver)](https://github.com/sajjad47/AITIR-Framework/releases/latest)
+[![Repository validation](https://github.com/sajjad47/AITIR-Framework/actions/workflows/validate.yml/badge.svg)](https://github.com/sajjad47/AITIR-Framework/actions/workflows/validate.yml)
+[![Documentation](https://img.shields.io/badge/docs-GitHub%20Pages-0f766e)](https://sajjad47.github.io/AITIR-Framework/)
 [![Status](https://img.shields.io/badge/status-reference%20architecture-f59e0b)](docs/status-and-limitations.md)
 [![License](https://img.shields.io/badge/license-research%20%26%20educational-64748b)](LICENSE.md)
 
@@ -11,6 +13,18 @@ AITIR Version 2.0 is a vendor-neutral reference architecture for converting iden
 > **Evidence in, authority out:** analytics produce evidence; authorized policy decides; enforcement acts; assurance verifies.
 
 A model score, anomaly label, graph rank, indicator match, or generated recommendation never grants itself response authority.
+
+## Release status
+
+**AITIR 2.0 is a reference architecture and research preview, not a production product or certification.** This repository supplies Level L0 documentation and selected L1 conformance artifacts. It does not claim agency deployment, legal sufficiency, NIST/CISA approval, model accuracy in a live organization, or authority to automate consequential actions.
+
+- **Current version:** [`2.0.0`](VERSION)
+- **Latest release:** [`v2.0.0`](https://github.com/sajjad47/AITIR-Framework/releases/tag/v2.0.0)
+- **Documentation:** [sajjad47.github.io/AITIR-Framework](https://sajjad47.github.io/AITIR-Framework/)
+- **Changelog:** [`CHANGELOG.md`](CHANGELOG.md)
+- **Release procedure:** [`docs/release-process.md`](docs/release-process.md)
+
+The repository's historical tag is `v0.1`; no formal `v1.0.0` tag existed. Version 2 refers to the pre-2.0 four-layer material as the **Version 1 conceptual baseline** for migration purposes without rewriting Git history.
 
 ## Version 2 at a glance
 
@@ -37,37 +51,69 @@ It adds:
 - corrected, automatically checked synthetic examples;
 - a clear evidence boundary between documentation, synthetic research, pilot evidence, and production assurance.
 
-## Status
+![AITIR Framework 2.0 seven-plane architecture](docs/assets/aitir-framework-architecture.png)
 
-**AITIR 2.0 is a reference architecture and research preview, not a production product or certification.** This repository supplies Level L0 documentation and selected L1 conformance artifacts. It does not claim agency deployment, legal sufficiency, NIST/CISA approval, model accuracy in a live organization, or authority to automate consequential actions.
+## Quick start
 
-The repository's historical tag is `v0.1`; no formal `v1.0.0` tag existed. Version 2 refers to the pre-2.0 four-layer material as the **Version 1 conceptual baseline** for migration purposes without rewriting Git history.
+AITIR is documentation and conformance tooling, not an installable security service. To evaluate the framework:
 
-## Start here
+1. Read the [Version 2 Specification](docs/version-2-specification.md) and [Status and Limitations](docs/status-and-limitations.md).
+2. Compare the [event](schemas/aitir-event-v2.schema.json), [evidence](schemas/aitir-evidence-v2.schema.json), and [decision](schemas/aitir-decision-v2.schema.json) contracts with their JSON examples.
+3. Inspect the corrected [synthetic events](examples/synthetic-identity-events.csv) and [risk output](examples/sample-risk-output.csv).
+4. Run the offline validator:
 
-- [Version 2 Specification](docs/version-2-specification.md)
-- [Technical Overview](docs/technical-overview.md)
-- [Architecture](docs/architecture.md)
-- [Data Contracts](docs/data-contracts.md)
-- [Response Authority](docs/response-authority.md)
-- [Standards Crosswalk](docs/standards-crosswalk.md)
-- [Migration from Version 1](docs/migration-v1-to-v2.md)
-- [Status and Limitations](docs/status-and-limitations.md)
-- [Roadmap](docs/roadmap.md)
+   ```bash
+   python3 scripts/validate_repository.py
+   ```
 
-## Evaluation and examples
+5. Run the complete pinned validation toolchain with [uv](https://docs.astral.sh/uv/):
 
-- [Synthetic Proof of Concept](docs/proof-of-concept.md)
-- [Reference Risk Scoring Model](docs/sample-risk-scoring-model.md)
-- [Pilot Evaluation Protocol](docs/pilot-evaluation-protocol.md)
-- [`examples/synthetic-identity-events.csv`](examples/synthetic-identity-events.csv)
-- [`examples/sample-risk-output.csv`](examples/sample-risk-output.csv)
-- JSON Schemas in [`schemas/`](schemas/)
-- Release-artifact hashes in [`ARTIFACTS.sha256`](ARTIFACTS.sha256)
+   ```bash
+   uv run --with-requirements requirements-dev.txt python scripts/validate_repository.py --jsonschema
+   uv run --with-requirements requirements-dev.txt python scripts/verify_generated_artifacts.py
+   ```
+
+These checks establish repository conformance, not detection effectiveness or deployment safety.
+
+## Documentation map
+
+| Area | Primary references |
+|---|---|
+| Normative architecture | [Specification](docs/version-2-specification.md), [Technical Overview](docs/technical-overview.md), [Architecture](docs/architecture.md) |
+| Contracts and authority | [Data Contracts](docs/data-contracts.md), [Response Authority](docs/response-authority.md), [`schemas/`](schemas/) |
+| Standards | [Standards Crosswalk](docs/standards-crosswalk.md), [NIST RMF Alignment](docs/nist-rmf-alignment.md) |
+| Evaluation | [Proof of Concept](docs/proof-of-concept.md), [Risk Model](docs/sample-risk-scoring-model.md), [Pilot Protocol](docs/pilot-evaluation-protocol.md) |
+| Evidence and maturity | [Status and Limitations](docs/status-and-limitations.md), [Research and Publications](docs/research-and-publications.md), [Research Ledger](research/version-2-research-ledger.md) |
+| Adoption | [Use Cases](docs/use-cases.md), [Migration Guide](docs/migration-v1-to-v2.md), [Roadmap](docs/roadmap.md) |
+| Governance | [Contributing](CONTRIBUTING.md), [Security](SECURITY.md), [Code of Conduct](CODE_OF_CONDUCT.md), [Release Process](docs/release-process.md) |
+
+## Repository structure
+
+```text
+.github/              CI, dependency updates, issue forms, and PR template
+docs/                 Specification, architecture, governance, and Pages site
+examples/             Synthetic CSV and JSON conformance examples
+public-materials/     Generated review PDFs and their HTML sources
+research/             Version 2 standards and literature provenance ledger
+schemas/              Draft 2020-12 event, evidence, and decision schemas
+scripts/              Deterministic build and validation tools
+ARTIFACTS.sha256      Release-artifact integrity manifest
+CITATION.cff          Machine-readable citation metadata
+VERSION               Canonical semantic version
+```
+
+## Public review materials
+
+- [AITIR Technical Exhibit](public-materials/AITIR-Technical-Exhibit.pdf)
+- [AITIR Future Development Plan](public-materials/AITIR-Future-Development-Plan.pdf)
+- [Architecture diagram](docs/assets/aitir-framework-architecture.png)
+- [Artifact hashes](ARTIFACTS.sha256)
+
+Generated materials have source-controlled HTML and pinned build instructions. See [Public Materials](docs/public-materials.md).
+
+## Evaluation boundary
 
 The 12-row example demonstrates schema, identifier, score-tier, and workflow consistency only. It has no ground-truth attack labels and cannot support claims about detection accuracy, false positives, calibration, operational safety, or return on investment.
-
-## Research modules
 
 Version 2 integrates four clearly bounded AITIR research streams:
 
@@ -91,19 +137,11 @@ These are mappings, not compliance or endorsement claims.
 - researchers evaluating calibrated, explainable, and bounded response;
 - assessors and procurement teams seeking inspectable evidence rather than generic “AI-powered” claims.
 
-## Repository validation
+## Contributing and security
 
-Run:
+Use the structured issue forms and follow [`CONTRIBUTING.md`](CONTRIBUTING.md). Pull requests must pass the repository-validation workflow and preserve the evidence, authority, privacy, and publication-status boundaries.
 
-```bash
-python3 scripts/validate_repository.py
-```
-
-For full JSON Schema validation:
-
-```bash
-uv run --with jsonschema python scripts/validate_repository.py --jsonschema
-```
+Do not open a public issue for credentials, privacy exposure, unsafe response paths, or exploitable implementation details. Use [private vulnerability reporting](https://github.com/sajjad47/AITIR-Framework/security/advisories/new) and read [`SECURITY.md`](SECURITY.md).
 
 ## Citation
 

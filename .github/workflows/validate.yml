@@ -1,0 +1,79 @@
+name: Validate repository
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: validate-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    name: Repository validation
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: "3.13"
+
+      - name: Set up uv
+        uses: astral-sh/setup-uv@37802adc94f370d6bfd71619e3f0bf239e1f3b78 # v7
+        with:
+          enable-cache: true
+
+      - name: Set up Node.js
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: "22"
+
+      - name: Lint and format-check Python
+        run: |
+          uv run --with-requirements requirements-dev.txt ruff check scripts
+          uv run --with-requirements requirements-dev.txt ruff format --check scripts
+
+      - name: Validate repository offline
+        run: python3 scripts/validate_repository.py
+
+      - name: Validate JSON Schemas and examples
+        run: >-
+          uv run --with-requirements requirements-dev.txt
+          python scripts/validate_repository.py --jsonschema
+
+      - name: Validate citation metadata
+        run: uvx --from cffconvert==2.0.0 cffconvert --validate -i CITATION.cff
+
+      - name: Lint Markdown
+        run: npx --yes markdownlint-cli2@0.23.2 '**/*.md' '#.git'
+
+      - name: Rebuild generated artifacts
+        run: |
+          uv run --with-requirements requirements-dev.txt python scripts/build_architecture.py
+          uv run --with-requirements requirements-dev.txt python scripts/build_public_materials.py
+
+      - name: Verify generated artifacts
+        run: >-
+          uv run --with-requirements requirements-dev.txt
+          python scripts/verify_generated_artifacts.py
+
+      - name: Verify reproducible outputs and manifest
+        run: |
+          python3 scripts/validate_repository.py
+          git diff --exit-code -- \
+            ARTIFACTS.sha256 \
+            docs/assets/aitir-framework-architecture.png \
+            public-materials/AITIR-Future-Development-Plan.pdf \
+            public-materials/AITIR-Technical-Exhibit.pdf

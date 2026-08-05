@@ -1,10 +1,16 @@
-# AITIR Framework Documentation
+---
+layout: default
+title: AITIR Framework 2.0 Documentation
+description: Evidence-grounded, authorized identity-threat response reference architecture.
+---
 
 **Version:** 2.0.0
 **Canonical name:** Adaptive Identity-and-access Threat Intelligence and Response
 **Status:** Reference architecture and research preview
 
 AITIR Version 2 converts identity-centered telemetry into governed evidence, a bounded policy decision, an authorized response, and auditable assurance. It does not give models independent authority.
+
+[View the GitHub repository](https://github.com/sajjad47/AITIR-Framework) · [Download the latest release](https://github.com/sajjad47/AITIR-Framework/releases/latest) · [Review status and limitations](status-and-limitations.md)
 
 ## Core specification
 
@@ -30,8 +36,10 @@ AITIR Version 2 converts identity-centered telemetry into governed evidence, a b
 - [Status and Limitations](status-and-limitations.md)
 - [Roadmap](roadmap.md)
 - [Public Materials](public-materials.md)
+- [Release Process](release-process.md)
 - [Security Guidance](../SECURITY.md)
 - [Contributing](../CONTRIBUTING.md)
+- [Code of Conduct](../CODE_OF_CONDUCT.md)
 - [Changelog](../CHANGELOG.md)
 
 ## Machine-readable artifacts
@@ -41,6 +49,7 @@ AITIR Version 2 converts identity-centered telemetry into governed evidence, a b
 - [Decision schema](../schemas/aitir-decision-v2.schema.json)
 - [Synthetic events](../examples/synthetic-identity-events.csv)
 - [Synthetic output](../examples/sample-risk-output.csv)
+- [Artifact integrity manifest](../ARTIFACTS.sha256)
 
 ## Evidence boundary
 

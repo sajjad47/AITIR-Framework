@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://github.com/sajjad47/AITIR-Framework/schemas/aitir-evidence-v2.schema.json",
+  "$id": "https://raw.githubusercontent.com/sajjad47/AITIR-Framework/v2.0.0/schemas/aitir-evidence-v2.schema.json",
   "title": "AITIR Evidence Object",
   "description": "Provenance-linked analytical evidence; never an authorization command.",
   "type": "object",

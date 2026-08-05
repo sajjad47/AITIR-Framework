@@ -22,13 +22,15 @@ AITIR welcomes technically rigorous documentation, schema, validation, evaluatio
 
    ```bash
    python3 scripts/validate_repository.py
-   uv run --with jsonschema python scripts/validate_repository.py --jsonschema
+   uv run --with-requirements requirements-dev.txt python scripts/validate_repository.py --jsonschema
+   uv run --with-requirements requirements-dev.txt python scripts/verify_generated_artifacts.py
    ```
 
 5. Rebuild public PDFs if their sources change:
 
    ```bash
-   uv run --with weasyprint python scripts/build_public_materials.py
+   uv run --with-requirements requirements-dev.txt python scripts/build_architecture.py
+   uv run --with-requirements requirements-dev.txt python scripts/build_public_materials.py
    ```
 
 6. Review the Git diff for unsupported claims, secrets, personal data, and accidental binary changes.

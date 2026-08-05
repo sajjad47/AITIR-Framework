@@ -1,0 +1,62 @@
+name: Documentation or artifact defect
+description: Report a reproducible problem in documentation, schemas, examples, validation, or generated artifacts.
+title: "[Defect]: "
+labels:
+  - bug
+  - needs-triage
+body:
+  - type: markdown
+    attributes:
+      value: |
+        AITIR is a reference architecture, not a hosted application. Do not include credentials, real identity telemetry, protected records, or confidential operational details.
+  - type: dropdown
+    id: area
+    attributes:
+      label: Affected area
+      options:
+        - Documentation
+        - JSON Schema or JSON example
+        - Synthetic CSV example
+        - Validation or build script
+        - Architecture diagram
+        - Public PDF
+        - GitHub Pages or repository navigation
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version or commit
+      placeholder: v2.0.0 or commit SHA
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: State what is wrong and what evidence supports the report.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Minimal reproduction
+      description: Provide safe, synthetic steps or a precise file/line reference.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected result
+    validations:
+      required: true
+  - type: checkboxes
+    id: boundaries
+    attributes:
+      label: Safety and evidence boundary
+      options:
+        - label: I removed credentials, personal data, confidential telemetry, and protected records.
+          required: true
+        - label: I am not presenting a synthetic observation as production evidence.
+          required: true
