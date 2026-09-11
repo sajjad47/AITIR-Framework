@@ -6,4 +6,4 @@ jsonschema[format]==4.26.0
 pillow==12.3.0
 pymupdf==1.28.0
 ruff==0.16.1
-weasyprint==69.0
+weasyprint==70.0
